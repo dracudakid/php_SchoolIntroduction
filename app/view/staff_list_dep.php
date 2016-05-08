@@ -54,41 +54,53 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
       </div>
 
       <div id="content" class="three_quarter"> 
-        <h1>Staff</h1>
-        <div id="staffs">
-          <ul>
-          <?php foreach ($staff_list as $s) { ?>
-           <li class="staff">
-              <div class="one_quarter first"> 
-                 <?php if ($s->getImage()!="") $img_src = $s->getImage(); else $img_src="images/demo/120x120.gif";  ?>
-                <img class="avatar borderedbox" src="<?php echo $img_src?>" alt="">
-              </div>
-              <div class="three_quarter">
-                <article>
-                <header>
-                  <div class="staff-name">
-                  <a href="#"><?php echo $s->getName(); ?></a>
-                  </div>
-                  
-                </header>
-                <div class="staffcon">
-                  <ul>
-                    <li><time datetime="2045-04-06T08:15+00:00"><?php echo $s->getDob(); ?></time></li>
-                    <li><?php echo $s->getEmail(); ?></li>
-                    <li><?php echo $s->getDegree(); ?></li>
-                    <li><?php echo $s->getPosition(); ?></li>
-                    <li><?php echo $s->getDepartmentId(); ?></li>
-                  </ul>
-                </div>
-              </article>
-              </div>
-
-            </li>
-          <?php } ?>
-           
-          </ul>
+        <div class="container">
+        <h1><?php echo $department->getName() ?></h1>
+        <?php if ($department->getImage()!="") $depImg = $department->getImage(); else $depImg="images/demo/120x120.gif";  ?>
+        <div class="clearfix"><img class="imgl borderedbox" style="overflow: all;" src="<?php echo $depImg ?>" alt="">
+        <p><?php echo $department->getDescription(); ?></p>
+        <p>Founding: <?php echo $department->getFounding(); ?></p>
+        <p>Dean: <?php echo $department->getDeanId(); ?></p>
         </div>
-        <nav class="pagination">
+        </div>
+        <div class="container">
+        <h1>Staff</h1>
+          <div id="staffs">
+            <ul>
+            <?php foreach ($staff_list as $s) { ?>
+             <li class="staff">
+                <div class="one_quarter first"> 
+                   <?php if ($s->getImage()!="") $img_src = $s->getImage(); else $img_src="images/demo/120x120.gif";  ?>
+                  <img class="avatar borderedbox" src="<?php echo $img_src?>" alt="">
+                </div>
+                <div class="three_quarter">
+                  <article>
+                  <header>
+                    <div class="staff-name">
+                    <a href="#"><?php echo $s->getName(); ?></a>
+                    </div>
+                    
+                  </header>
+                  <div class="staffcon">
+                    <ul>
+                      <li><time datetime="2045-04-06T08:15+00:00"><?php echo $s->getDob(); ?></time></li>
+                      <li><?php echo $s->getEmail(); ?></li>
+                      <li><?php echo $s->getDegree(); ?></li>
+                      <li><?php echo $s->getPosition(); ?></li>
+                      <li><?php echo $s->getDepartmentId(); ?></li>
+                    </ul>
+                  </div>
+                </article>
+                </div>
+
+              </li>
+            <?php } ?>
+             
+            </ul>
+          </div>
+        </div>
+        <div class="container">
+          <nav class="pagination">
         <ul>
           <li><a href="#">« Previous</a></li>
           <li><a href="#">1</a></li>
@@ -104,9 +116,9 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
           <li><a href="#">Next »</a></li>
         </ul>
       </nav>
-        <!-- ################################################################################################ --> 
+        </div>
+        
       </div>
-      <!-- ################################################################################################ --> 
       <!-- / main body -->
       <div class="clear"></div>
     </main>

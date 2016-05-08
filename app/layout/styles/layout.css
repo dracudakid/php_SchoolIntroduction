@@ -107,11 +107,12 @@ File: Layout CSS
 /* StaffList */
 
 #staffs .avatar{ margin: 0 20px ; }
-#staffs .staff-name{font-weight:bold; margin-top: 20px;}
-#staffs .staffcon{display:block; margin: 0 0 0 160px; padding:0;}
-#staffs ul { list-style: none }
-#staffs .staffcon ul { margin: 0; }
-#staffs .staffcon ul li { margin: 5px 0;  list-style: circle; }
+#staffs .staff-name{font-weight:bold;}
+#staffs .staffcon{display:block;}
+#staffs ul { list-style: none; margin-bottom: 20px; }
+#staffs .staff { }
+#staffs .staffcon ul {}
+#staffs .staffcon ul li { margin-top: 5px;  list-style: circle; }
 
 #staffs form{display:block; width:100%;}
 #staffs textarea{overflow:auto;}
@@ -368,6 +369,9 @@ tr:nth-child(odd), #comments li:nth-child(odd){color:inherit; background-color:#
 table a, #comments a{background-color:inherit;}
 
 
+.clearfix{
+  overflow: auto;
+}
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */

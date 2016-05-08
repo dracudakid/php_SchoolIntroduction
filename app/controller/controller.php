@@ -15,10 +15,12 @@ class Controller
 	public function route()
 	{
 		if(isset($_GET["page"]) && $_GET["page"]=="staff_list"){
-			$dep_list = (new department())->getDepartmentList();
-			if(isset($_GET["dev_id"])){
-				$dev_id = $_GET["dev_id"];
-
+			$dep_list = (new Department())->getDepartmentList();
+			if(isset($_GET["dep"])){
+				$depId = $_GET["dep"];
+				$department = (new Department())->getDepartmentById($depId);
+				$staff_list = (new Staff())->getStaffListByDepartmentId($depId);
+				include_once 'view/staff_list_dep.php';
 			}
 			else {
 				$staff_list = (new Staff())->getAllStaff();

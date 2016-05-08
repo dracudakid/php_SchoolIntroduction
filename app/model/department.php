@@ -20,6 +20,7 @@ class Department
 	{
 		$conn = MysqliConnection::getConnection();
 		$sql = "select * from departments";
+        echo $sql;
         $arr = array();
         $result = $conn->query($sql);
         while($items = mysqli_fetch_assoc($result)){
@@ -35,6 +36,23 @@ class Department
         return $arr;
 	}
 
+    public function getDepartmentById($depId)
+    {
+        $conn = MysqliConnection::getConnection();
+        $sql = "select * from departments where id = '$depId'";
+        echo $sql;
+        $result = $conn->query($sql);
+        $dep = new Department();
+        if($items = mysqli_fetch_assoc($result)){
+            $dep->_setId($items["id"]);
+            $dep->_setName($items["name"]);
+            $dep->_setDescription($items["description"]);
+            $dep->_setFounding($items["founding"]);
+            $dep->_setDeanId($items["dean_id"]);
+        }
+        $conn->close();
+        return $dep;
+    }
     /**
      * Gets the value of id.
      *

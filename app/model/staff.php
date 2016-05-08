@@ -41,11 +41,12 @@ class Staff
         return $arr;
 	}
 
-	public function getStaffListFromDepartmentId($depId)
+	public function getStaffListByDepartmentId($depId)
 	{
 		$conn = MysqliConnection::getConnection();
 		$sql = "select * from staffs where department_id = '$depId'";
-		$array = array();
+        echo $sql;
+		$arr = array();
 		$result = $conn->query($sql);
 		while($items = mysqli_fetch_assoc($result)){
             $s = new Staff();

@@ -120,11 +120,7 @@ File: Layout CSS
 /* Search form */
 .search-form{display:block; position:relative; width:100%;}
 .search-form input, .search-form button{display:block; height:30px; border:1px solid #eee;}
-<<<<<<< HEAD
-.search-form input{float:right; padding:5px 40px 5px 5px;}
-=======
 .search-form input{width:100%; padding:5px 40px 5px 5px;}
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
 .search-form button{position:absolute; top:0; right:0; width:35px; font-size:14px; cursor:pointer; color: #F9F9F9; background-color: #55ABDA; border-radius: 0 8px 8px 0;}
 .search-form button em{display:none;}
 
@@ -368,8 +364,8 @@ label span{color:#FF0000; background-color:inherit;}
 /* Tables + Comments */
 table, th, td, #comments .avatar, #comments input, #comments textarea{border-color:#D7D7D7;}
 th{color:#FFFFFF; background-color:#373737;}
-tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:#b9b9b9; background-color:#FBFBFB;}
-tr:nth-child(odd), #comments li:nth-child(odd){color:#727272; background-color:#FFFFFF;}
+tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:inherit; background-color:#FBFBFB;}
+tr:nth-child(odd), #comments li:nth-child(odd){color:inherit; background-color:#FFFFFF;}
 table a, #comments a{background-color:inherit;}
 
 

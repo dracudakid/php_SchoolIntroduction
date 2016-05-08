@@ -8,14 +8,12 @@
    private static $connection = null;
    
    public static function getConnection(){
-       if(self::$connection === null){
            //Here get some routine to make your configuration extern
            self::$connection = new Mysqli(self::$dbhost, self::$dbuser, self::$dbpass, self::$dbname);
            self::$connection->set_charset("utf8");
            if(mysqli_connect_errno()){
-				echo "Ket noi loi db:".mysqli_connect_error()."<br />";
-			}
-       }
+    				echo "Ket noi loi db:".mysqli_connect_error()."<br />";
+    			}
        return self::$connection;
 }
 }

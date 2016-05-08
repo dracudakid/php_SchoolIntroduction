@@ -104,6 +104,25 @@ File: Layout CSS
 #comments div{margin-bottom:15px;}
 #comments input[type="submit"], #comments input[type="reset"]{display:inline-block; width:auto; min-width:150px; margin:0; padding:8px 5px; cursor:pointer;}
 
+/* StaffList */
+
+#staffs .avatar{ margin: 0 20px ; }
+#staffs .staff-name{font-weight:bold; margin-top: 20px;}
+#staffs .staffcon{display:block; margin: 0 0 0 160px; padding:0;}
+#staffs ul { list-style: none }
+#staffs .staffcon ul { margin: 0; }
+#staffs .staffcon ul li { margin: 5px 0;  list-style: circle; }
+
+#staffs form{display:block; width:100%;}
+#staffs textarea{overflow:auto;}
+
+/* Search form */
+.search-form{display:block; position:relative; width:100%;}
+.search-form input, .search-form button{display:block; height:30px; border:1px solid #eee;}
+.search-form input{width:100%; padding:5px 40px 5px 5px;}
+.search-form button{position:absolute; top:0; right:0; width:35px; font-size:14px; cursor:pointer; color: #F9F9F9; background-color: #55ABDA; border-radius: 0 8px 8px 0;}
+.search-form button em{display:none;}
+
 /* Sidebar */
 .container .sidebar{}
 

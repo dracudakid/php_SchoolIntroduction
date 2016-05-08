@@ -1,5 +1,5 @@
 <?php 
-include_once dirname(__FILE__).'/../helpers/dbConnection.php';
+include_once __SITE_PATH.'/helpers/dbConnection.php';
 /**
 * 
 */
@@ -31,6 +31,7 @@ class Department
             $dep->_setDeanId($items["dean_id"]);
             array_push($arr, $dep);
         }
+        $conn->close();
         return $arr;
 	}
 

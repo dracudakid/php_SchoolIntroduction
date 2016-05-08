@@ -1,5 +1,5 @@
 <?php 
-include_once 'helpers/dbConnection.php';
+include_once dirname(__FILE__).'/../helpers/dbConnection.php';
 /**
 * 
 */
@@ -19,7 +19,19 @@ class Department
 	public function getDepartmentList()
 	{
 		$conn = MysqliConnection::getConnection();
-		echo "Hello";
+		$sql = "select * from departments";
+        $arr = array();
+        $result = $conn->query($sql);
+        while($items = mysqli_fetch_assoc($result)){
+            $dep = new Department();
+            $dep->_setId($items["id"]);
+            $dep->_setName($items["name"]);
+            $dep->_setDescription($items["description"]);
+            $dep->_setFounding($items["founding"]);
+            $dep->_setDeanId($items["dean_id"]);
+            array_push($arr, $dep);
+        }
+        return $arr;
 	}
 
     /**

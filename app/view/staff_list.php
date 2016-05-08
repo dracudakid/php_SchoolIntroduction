@@ -1,31 +1,28 @@
+<?php 
+include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php'; 
+?>
+
 <!DOCTYPE html>
-<!--
-Template Name: Academic Education V2
-Author: <a href="http://www.os-templates.com/">OS Templates</a>
-Author URI: http://www.os-templates.com/
-Licence: Free to use under our free template licence terms
-Licence URI: http://www.os-templates.com/template-terms
--->
 <html>
 <head>
 <title>Academic Education V2 | Pages | Sidebar Left 2</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
 
 <div class="wrapper row0">
-  <?php include '../layout/topbar.php' ?>
+  <?php include __SITE_PATH.'/layout/topbar.php' ?>
 </div>
 
 
 <div class="wrapper row1">
-  <?php include '../layout/header.php' ?>
+  <?php include __SITE_PATH.'/layout/header.php' ?>
 </div>
 
 <div class="wrapper row2">
-  <?php include '../layout/main-nav.php'; ?>
+  <?php require __SITE_PATH.'/layout/main-nav.php' ?>
 </div>
 <!-- ################################################################################################ --> 
 <!-- ################################################################################################ --> 
@@ -40,49 +37,24 @@ Licence URI: http://www.os-templates.com/template-terms
         <h6>Departments</h6>
         <nav class="sdb_holder">
           <?php 
-            
-
-
-
-          ?>
+            foreach ($dep_list as $dep) { ?>
+              <ul>
+                <li><a href="#"><?php echo $dep->getName() ?></a></li>
+              </ul>
+          <?php
+            }
+           ?>
         </nav>
-        <div class="sdb_holder">
-          <h6>Lorem ipsum dolor</h6>
-          <address>
-          Full Name<br>
-          Address Line 1<br>
-          Address Line 2<br>
-          Town/City<br>
-          Postcode/Zip<br>
-          <br>
-          Tel: xxxx xxxx xxxxxx<br>
-          Email: <a href="#">contact@domain.com</a>
-          </address>
-        </div>
-        <div class="sdb_holder">
-          <article>
-            <h6>Lorem ipsum dolor</h6>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-            <ul>
-              <li><a href="#">Lorem ipsum dolor sit</a></li>
-              <li>Etiam vel sapien et</li>
-              <li><a href="#">Etiam vel sapien et</a></li>
-            </ul>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed. Condimentumsantincidunt dui mattis magna intesque purus orci augue lor nibh.</p>
-            <p class="more"><a href="#">Continue Reading &raquo;</a></p>
-          </article>
-        </div>
-        <!-- ################################################################################################ --> 
       </div>
       <!-- ################################################################################################ --> 
       <!-- ################################################################################################ -->
       <div id="content" class="three_quarter"> 
         <!-- ################################################################################################ -->
         <h1>&lt;h1&gt; to &lt;h6&gt; - Headline Colour and Size Are All The Same</h1>
-        <img class="imgr borderedbox" src="../images/demo/120x120.gif" alt="">
+        <img class="imgr borderedbox" src="images/demo/120x120.gif" alt="">
         <p>Aliquatjusto quisque nam consequat doloreet vest orna partur scetur portortis nam. Metadipiscing eget facilis elit sagittis felisi eger id justo maurisus convallicitur.</p>
         <p>Dapiensociis <a href="#">temper donec auctortortis cumsan</a> et curabitur condis lorem loborttis leo. Ipsumcommodo libero nunc at in velis tincidunt pellentum tincidunt vel lorem.</p>
-        <img class="imgl borderedbox" src="../images/demo/120x120.gif" alt="">
+        <img class="imgl borderedbox" src="images/demo/120x120.gif" alt="">
         <p>This is a W3C compliant free website template from <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a>. For full terms of use of this template please read our <a href="http://www.os-templates.com/template-terms">website template licence</a>.</p>
         <p>You can use and modify the template for both personal and commercial use. You must keep all copyright information and credit links in the template and associated files. For more website templates visit <a href="http://www.os-templates.com/">free website templates</a>.</p>
         <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus.</p>
@@ -131,7 +103,7 @@ Licence URI: http://www.os-templates.com/template-terms
             <li>
               <article>
                 <header>
-                  <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                  <figure class="avatar"><img src="images/demo/avatar.png" alt=""></figure>
                   <address>
                   By <a href="#">A Name</a>
                   </address>
@@ -145,7 +117,7 @@ Licence URI: http://www.os-templates.com/template-terms
             <li>
               <article>
                 <header>
-                  <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                  <figure class="avatar"><img src="images/demo/avatar.png" alt=""></figure>
                   <address>
                   By <a href="#">A Name</a>
                   </address>
@@ -159,7 +131,7 @@ Licence URI: http://www.os-templates.com/template-terms
             <li>
               <article>
                 <header>
-                  <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                  <figure class="avatar"><img src="images/demo/avatar.png" alt=""></figure>
                   <address>
                   By <a href="#">A Name</a>
                   </address>
@@ -204,50 +176,8 @@ Licence URI: http://www.os-templates.com/template-terms
     </main>
   </div>
 </div>
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ -->
-<div class="wrapper row4">
-  <div class="rounded">
-    <footer id="footer" class="clear"> 
-      <!-- ################################################################################################ -->
-      <div class="one_third first">
-        <figure class="center"><img class="btmspace-15" src="../images/demo/worldmap.png" alt="">
-          <figcaption><a href="#">Find Us With Google Maps &raquo;</a></figcaption>
-        </figure>
-      </div>
-      <div class="one_third">
-        <address>
-        Long Educational Facility Name<br>
-        Address Line 2<br>
-        Town/City<br>
-        Postcode/Zip<br>
-        <br>
-        <i class="fa fa-phone pright-10"></i> xxxx xxxx xxxxxx<br>
-        <i class="fa fa-envelope-o pright-10"></i> <a href="#">contact@domain.com</a>
-        </address>
-      </div>
-      <div class="one_third">
-        <p class="nospace btmspace-10">Stay Up to Date With What's Happening</p>
-        <ul class="faico clear">
-          <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-          <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-          <li><a class="faicon-flickr" href="#"><i class="fa fa-flickr"></i></a></li>
-          <li><a class="faicon-rss" href="#"><i class="fa fa-rss"></i></a></li>
-        </ul>
-        <form class="clear" method="post" action="#">
-          <fieldset>
-            <legend>Subscribe To Our Newsletter:</legend>
-            <input type="text" value="" placeholder="Enter Email Here&hellip;">
-            <button class="fa fa-sign-in" type="submit" title="Sign Up"><em>Sign Up</em></button>
-          </fieldset>
-        </form>
-      </div>
-      <!-- ################################################################################################ --> 
-    </footer>
-  </div>
-</div>
+
+<?php include__SITE_PATH.'/layout/footer.php' ?>
 <!-- ################################################################################################ --> 
 <!-- ################################################################################################ --> 
 <!-- ################################################################################################ -->
@@ -260,8 +190,8 @@ Licence URI: http://www.os-templates.com/template-terms
   </div>
 </div>
 <!-- JAVASCRIPTS --> 
-<script src="../layout/scripts/jquery.min.js"></script> 
-<script src="../layout/scripts/jquery.fitvids.min.js"></script> 
-<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+<script src="layout/scripts/jquery.min.js"></script> 
+<script src="layout/scripts/jquery.fitvids.min.js"></script> 
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
 </body>
 </html>

@@ -64,6 +64,52 @@ class Staff
         return $arr;
 	}
 
+    public function getStaffListByName($name)
+    {
+        $conn = MysqliConnection::getConnection();
+        $sql = "select * from staffs where name like '%$name%'";
+        echo $sql;
+        $arr = array();
+        $result = $conn->query($sql);
+        while($items = mysqli_fetch_assoc($result)){
+            $s = new Staff();
+            $s->_setId($items["id"]);
+            $s->_setName($items["name"]);
+            $s->_setDob($items["dob"]);
+            $s->_setEmail($items["email"]);
+            $s->_setDegree($items["degree"]);
+            $s->_setImage($items["image"]);
+            $s->_setPosition($items["position"]);
+            $s->_setDepartmentId($items["department_id"]);
+            array_push($arr, $s);
+        }
+        $conn->close();
+        return $arr;
+    }
+
+    public function getStaffListByDepartmentIdAndName($depId, $name)
+    {
+        $conn = MysqliConnection::getConnection();
+        $sql = "select * from staffs where department_id='$depId' and name like '%$name%'";
+        echo $sql;
+        $arr = array();
+        $result = $conn->query($sql);
+        while($items = mysqli_fetch_assoc($result)){
+            $s = new Staff();
+            $s->_setId($items["id"]);
+            $s->_setName($items["name"]);
+            $s->_setDob($items["dob"]);
+            $s->_setEmail($items["email"]);
+            $s->_setDegree($items["degree"]);
+            $s->_setImage($items["image"]);
+            $s->_setPosition($items["position"]);
+            $s->_setDepartmentId($items["department_id"]);
+            array_push($arr, $s);
+        }
+        $conn->close();
+        return $arr;
+    }
+
     /**
      * Gets the value of id.
      *

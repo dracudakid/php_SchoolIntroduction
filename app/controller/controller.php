@@ -1,6 +1,7 @@
 <?php 
 include_once 'model/department.php';
 include_once 'model/staff.php';
+include_once 'model/club.php';
 /**
 * 
 */
@@ -14,19 +15,52 @@ class Controller
 
 	public function route()
 	{
-		if(isset($_GET["page"]) && $_GET["page"]=="staff_list"){
-			$dep_list = (new Department())->getDepartmentList();
-			if(isset($_GET["dep"])){
-				$depId = $_GET["dep"];
-				$department = (new Department())->getDepartmentById($depId);
-				$staff_list = (new Staff())->getStaffListByDepartmentId($depId);
-				include_once 'view/staff_list_dep.php';
+		# have page paramter
+		if(isset($_GET["page"])){
+			if($_GET["page"]=="staff_list"){
+				$dep_list = (new Department())->getDepartmentList();
+				if(isset($_GET["dep"])){
+					$depId = $_GET["dep"];
+					$department = (new Department())->getDepartmentById($depId);
+					// search staffs in a department
+					if(isset($_GET["search"])){
+						$search = $_GET["search"];
+						$staff_list = (new Staff())->getStaffListByDepartmentIdAndName($depId, $search);
+						include_once 'view/staff_list_filter.php';
+					}
+					// list all staff in a department
+					else{
+						$staff_list = (new Staff())->getStaffListByDepartmentId($depId);
+						include_once 'view/staff_list_dep.php';
+					}					
+				} 
+
+				// search staff for all departments
+				elseif(isset($_GET["search"])){
+					$search = $_GET["search"];
+					$staff_list = (new Staff())->getStaffListByName($search);
+					include_once 'view/staff_list_filter.php';
+				}
+
+				// list all staff
+				else {
+					$staff_list = (new Staff())->getAllStaff();
+					include_once 'view/staff_list.php';
+				}
+			} elseif ($_GET["page"]=="club_list") {
+				$club_list = (new Club())->getAllClubs();
+				if(isset($_GET["club"])){
+					$clubId = $_GET["club"];
+					$club = (new Club())->getClubById($clubId);
+					// to club detail
+					include_once 'view/club_details.php';
+				} else{
+					// to static club_list firstpage
+					include_once 'view/club_list.php';
+				}
 			}
-			else {
-				$staff_list = (new Staff())->getAllStaff();
-				include_once 'view/staff_list.php';
-			}
-		} else{
+		}
+		else{
 			include_once 'view/home.php';
 		}
 	}

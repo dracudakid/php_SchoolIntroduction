@@ -32,15 +32,15 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
       <div class="sidebar one_quarter first"> 
        <h6>Search for staff</h6>
         <div class="sdb_holder">  
-          <form class="search-form" method="post" action="#">
+          <form class="search-form" method="post" >
             <fieldset>
               <legend>Search:</legend>
-              <input type="text" value="" placeholder="Search Here">
+              <input id="txtSearch"type="text" value="" placeholder="Search Here" onkeyup="searchStaff(this.value)">
               <button class="fa fa-search" type="submit" title="Search"><em>Search</em></button>
             </fieldset>
           </form>
         </div>
-        <h6>Departments</h6>
+        <h6>DEPARTMENTS</h6>
         <nav class="sdb_holder">
           <?php 
             foreach ($dep_list as $dep) { ?>
@@ -118,5 +118,17 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
 <script src="layout/scripts/jquery.min.js"></script> 
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script type="text/javascript">
+  function searchStaff(searchValue) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        document.getElementById("staffs").innerHTML = xmlhttp.responseText;
+      }
+    }
+    xmlhttp.open("GET", "index.php?page=staff_list&&search=" + searchValue, true);
+    xmlhttp.send();
+  }
+</script>
 </body>
 </html>

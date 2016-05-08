@@ -7,7 +7,7 @@
         <li><a href="#">News</a></li>
         <li><a href="#">Administrators</a></li>
         <li><a href="index.php?page=staff_list">Staffs</a></li>
-        <li><a href="#">Clubs</a></li>
+        <li><a href="index.php?page=club_list">Clubs</a></li>
         <li><a href="#">Academics</a></li>
       </ul>
     </nav>

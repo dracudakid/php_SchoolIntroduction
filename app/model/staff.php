@@ -13,18 +13,12 @@ class Staff
 	private $image;
 	private $position;
 	private $department_id;
-<<<<<<< HEAD
-=======
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
 	function __construct()
 	{
 		# code...
 	}
-<<<<<<< HEAD
-=======
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
 	public function getAllStaff()
 	{
 		$conn = MysqliConnection::getConnection();
@@ -46,13 +40,6 @@ class Staff
         $conn->close();
         return $arr;
 	}
-<<<<<<< HEAD
-	public function getStaffListFromDepartmentId($depId)
-	{
-		$conn = MysqliConnection::getConnection();
-		$sql = "select * from staffs where department_id = '$depId'";
-		$array = array();
-=======
 
 	public function getStaffListByDepartmentId($depId)
 	{
@@ -60,7 +47,6 @@ class Staff
 		$sql = "select * from staffs where department_id = '$depId'";
         echo $sql;
 		$arr = array();
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
 		$result = $conn->query($sql);
 		while($items = mysqli_fetch_assoc($result)){
             $s = new Staff();
@@ -77,8 +63,6 @@ class Staff
         $conn->close();
         return $arr;
 	}
-<<<<<<< HEAD
-=======
 
     public function getStaffListByName($name)
     {
@@ -126,7 +110,6 @@ class Staff
         return $arr;
     }
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Gets the value of id.
      *
@@ -136,10 +119,7 @@ class Staff
     {
         return $this->id;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Sets the value of id.
      *
@@ -150,15 +130,10 @@ class Staff
     private function _setId($id)
     {
         $this->id = $id;
-<<<<<<< HEAD
-        return $this;
-    }
-=======
 
         return $this;
     }
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Gets the value of name.
      *
@@ -168,10 +143,7 @@ class Staff
     {
         return $this->name;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Sets the value of name.
      *
@@ -182,15 +154,10 @@ class Staff
     private function _setName($name)
     {
         $this->name = $name;
-<<<<<<< HEAD
-        return $this;
-    }
-=======
 
         return $this;
     }
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Gets the value of dob.
      *
@@ -200,10 +167,7 @@ class Staff
     {
         return $this->dob;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Sets the value of dob.
      *
@@ -214,15 +178,10 @@ class Staff
     private function _setDob($dob)
     {
         $this->dob = $dob;
-<<<<<<< HEAD
-        return $this;
-    }
-=======
 
         return $this;
     }
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Gets the value of email.
      *
@@ -232,10 +191,7 @@ class Staff
     {
         return $this->email;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Sets the value of email.
      *
@@ -246,15 +202,10 @@ class Staff
     private function _setEmail($email)
     {
         $this->email = $email;
-<<<<<<< HEAD
-        return $this;
-    }
-=======
 
         return $this;
     }
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Gets the value of degree.
      *
@@ -264,10 +215,7 @@ class Staff
     {
         return $this->degree;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Sets the value of degree.
      *
@@ -278,15 +226,10 @@ class Staff
     private function _setDegree($degree)
     {
         $this->degree = $degree;
-<<<<<<< HEAD
-        return $this;
-    }
-=======
 
         return $this;
     }
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Gets the value of image.
      *
@@ -296,10 +239,7 @@ class Staff
     {
         return $this->image;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Sets the value of image.
      *
@@ -310,15 +250,10 @@ class Staff
     private function _setImage($image)
     {
         $this->image = $image;
-<<<<<<< HEAD
-        return $this;
-    }
-=======
 
         return $this;
     }
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Gets the value of position.
      *
@@ -328,10 +263,7 @@ class Staff
     {
         return $this->position;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Sets the value of position.
      *
@@ -342,15 +274,10 @@ class Staff
     private function _setPosition($position)
     {
         $this->position = $position;
-<<<<<<< HEAD
-        return $this;
-    }
-=======
 
         return $this;
     }
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Gets the value of department_id.
      *
@@ -360,10 +287,7 @@ class Staff
     {
         return $this->department_id;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
     /**
      * Sets the value of department_id.
      *
@@ -374,14 +298,8 @@ class Staff
     private function _setDepartmentId($department_id)
     {
         $this->department_id = $department_id;
-<<<<<<< HEAD
-        return $this;
-    }
-}
-=======
 
         return $this;
     }
 }
  ?>
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73

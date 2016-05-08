@@ -1,9 +1,5 @@
 <?php 
-<<<<<<< HEAD
 include_once __SITE_PATH.'/model/department.php'; 
-=======
-include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php'; 
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
 ?>
 
 <!DOCTYPE html>
@@ -36,26 +32,16 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
       <div class="sidebar one_quarter first"> 
        <h6>Search for staff</h6>
         <div class="sdb_holder">  
-<<<<<<< HEAD
-          <form class="search-form" method="post" action="#">
-            <fieldset>
-              <legend>Search:</legend>
-              <input type="text" value="" placeholder="Search Here">
-=======
+
           <form class="search-form" method="post" >
             <fieldset>
               <legend>Search:</legend>
               <input id="txtSearch"type="text" value="" placeholder="Search Here" onkeyup="searchStaff(this.value)">
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
               <button class="fa fa-search" type="submit" title="Search"><em>Search</em></button>
             </fieldset>
           </form>
         </div>
-<<<<<<< HEAD
-        <h6>Departments</h6>
-=======
         <h6>DEPARTMENTS</h6>
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
         <nav class="sdb_holder">
           <?php 
             foreach ($dep_list as $dep) { ?>
@@ -105,32 +91,18 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
         </div>
         <nav class="pagination">
         <ul>
-<<<<<<< HEAD
           <li><a href="#">« Previous</a></li>
           <li><a href="#">1</a></li>
           <li><a href="#">2</a></li>
           <li><strong>…</strong></li>
-=======
-          <li><a href="#">Â« Previous</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><strong>â€¦</strong></li>
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
           <li><a href="#">6</a></li>
           <li class="current"><strong>7</strong></li>
           <li><a href="#">8</a></li>
           <li><a href="#">9</a></li>
-<<<<<<< HEAD
           <li><strong>…</strong></li>
           <li><a href="#">14</a></li>
           <li><a href="#">15</a></li>
           <li><a href="#">Next »</a></li>
-=======
-          <li><strong>â€¦</strong></li>
-          <li><a href="#">14</a></li>
-          <li><a href="#">15</a></li>
-          <li><a href="#">Next Â»</a></li>
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
         </ul>
       </nav>
         <!-- ################################################################################################ --> 
@@ -147,8 +119,6 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
 <script src="layout/scripts/jquery.min.js"></script> 
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
-<<<<<<< HEAD
-=======
 <script type="text/javascript">
   function searchStaff(searchValue) {
     var xmlhttp = new XMLHttpRequest();
@@ -161,6 +131,5 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
     xmlhttp.send();
   }
 </script>
->>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
 </body>
 </html>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <!--
 Template Name: Academic Education V2
 Author: <a href="http://www.os-templates.com/">OS Templates</a>
@@ -10,13 +11,22 @@ Licence URI: http://www.os-templates.com/template-terms
 <html>
 <head>
 <title>DH High School</title>
+=======
+<html>
+<head>
+<title>Meseyside High School</title>
+>>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
 <div class="wrapper row0">
+<<<<<<< HEAD
 	<?php include __SITE_PATH.'/layout/topbar.php' ?>
+=======
+  <?php include __SITE_PATH.'/layout/topbar.php' ?>
+>>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
 </div>
 
 
@@ -27,7 +37,11 @@ Licence URI: http://www.os-templates.com/template-terms
 <div class="wrapper row2">
   <?php require __SITE_PATH.'/layout/main-nav.php' ?>
 </div>
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
 <div class="wrapper">
   <div id="slider">
     <div id="slide-wrapper" class="rounded clear"> 
@@ -79,9 +93,15 @@ Licence URI: http://www.os-templates.com/template-terms
     </div>
   </div>
 </div>
+<<<<<<< HEAD
 
 <!-- ################################################################################################ --> 
 
+=======
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+>>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
 <div class="wrapper row3">
   <div class="rounded">
     <main class="container clear"> 
@@ -153,7 +173,11 @@ Licence URI: http://www.os-templates.com/template-terms
   </div>
 </div>
 
+<<<<<<< HEAD
 <?php include 'layout/footer.php' ?>
+=======
+<?php include __SITE_PATH.'layout/footer.php' ?>
+>>>>>>> 48553203d0b55687ad78699dcd245dacb0afda73
 <!-- JAVASCRIPTS --> 
 <script src="layout/scripts/jquery.min.js"></script> 
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 

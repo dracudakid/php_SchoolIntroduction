@@ -17,7 +17,8 @@
 			}
        }
        return self::$connection;
-}
-}
+	}
 	
+}
+
 ?>

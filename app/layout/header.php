@@ -2,7 +2,7 @@
     <!-- ################################################################################################ -->
     <div id="logo" class="fl_left">
       <h1><a href="index.php">Academic Education V2</a></h1>
-      <p>Free Website Template</p>
+      <p>Founder Dat - Hoai</p>
     </div>
     <div class="fl_right">
       <form class="clear" method="post" action="#">

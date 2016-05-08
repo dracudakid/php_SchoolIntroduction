@@ -104,6 +104,26 @@ File: Layout CSS
 #comments div{margin-bottom:15px;}
 #comments input[type="submit"], #comments input[type="reset"]{display:inline-block; width:auto; min-width:150px; margin:0; padding:8px 5px; cursor:pointer;}
 
+/* StaffList */
+
+#staffs .avatar{ margin: 0 20px ; }
+#staffs .staff-name{font-weight:bold;}
+#staffs .staffcon{display:block;}
+#staffs ul { list-style: none; margin-bottom: 20px; }
+#staffs .staff { }
+#staffs .staffcon ul {}
+#staffs .staffcon ul li { margin-top: 5px;  list-style: circle; }
+
+#staffs form{display:block; width:100%;}
+#staffs textarea{overflow:auto;}
+
+/* Search form */
+.search-form{display:block; position:relative; width:100%;}
+.search-form input, .search-form button{display:block; height:30px; border:1px solid #eee;}
+.search-form input{float:right; padding:5px 40px 5px 5px;}
+.search-form button{position:absolute; top:0; right:0; width:35px; font-size:14px; cursor:pointer; color: #F9F9F9; background-color: #55ABDA; border-radius: 0 8px 8px 0;}
+.search-form button em{display:none;}
+
 /* Sidebar */
 .container .sidebar{}
 
@@ -344,11 +364,14 @@ label span{color:#FF0000; background-color:inherit;}
 /* Tables + Comments */
 table, th, td, #comments .avatar, #comments input, #comments textarea{border-color:#D7D7D7;}
 th{color:#FFFFFF; background-color:#373737;}
-tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:inherit; background-color:#FBFBFB;}
-tr:nth-child(odd), #comments li:nth-child(odd){color:inherit; background-color:#FFFFFF;}
+tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:#b9b9b9; background-color:#FBFBFB;}
+tr:nth-child(odd), #comments li:nth-child(odd){color:#727272; background-color:#FFFFFF;}
 table a, #comments a{background-color:inherit;}
 
 
+.clearfix{
+  overflow: auto;
+}
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */

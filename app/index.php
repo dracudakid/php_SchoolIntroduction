@@ -6,6 +6,7 @@ Author URI: http://www.os-templates.com/
 Licence: Free to use under our free template licence terms
 Licence URI: http://www.os-templates.com/template-terms
 -->
+
 <html>
 <head>
 <title>Meseyside High School</title>
@@ -14,68 +15,19 @@ Licence URI: http://www.os-templates.com/template-terms
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ -->
 <div class="wrapper row0">
-  <div id="topbar" class="clear"> 
-    <!-- ################################################################################################ -->
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">A - Z Index</a></li>
-        <li><a href="#">Staff Login</a></li>
-      </ul>
-    </nav>
-    <!-- ################################################################################################ --> 
-  </div>
+  <?php include './layout/topbar.php' ?>
 </div>
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ -->
+
+
 <div class="wrapper row1">
-  <header id="header" class="clear"> 
-    <!-- ################################################################################################ -->
-    <div id="logo" class="fl_left">
-      <h1><a href="index.php">Academic Education V2</a></h1>
-      <p>Free Website Template</p>
-    </div>
-    <div class="fl_right">
-      <form class="clear" method="post" action="#">
-        <fieldset>
-          <legend>Search:</legend>
-          <input type="text" value="" placeholder="Search Here">
-          <button class="fa fa-search" type="submit" title="Search"><em>Search</em></button>
-        </fieldset>
-      </form>
-    </div>
-    <!-- ################################################################################################ --> 
-  </header>
+  <?php include './layout/header.php' ?>
 </div>
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ -->
+
 <div class="wrapper row2">
-  <div class="rounded">
-    <nav id="mainav" class="clear"> 
-      <!-- ################################################################################################ -->
-      <ul class="clear">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a class="drop" href="#">About</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Administrators</a></li>
-        <li><a href="#">Staffs</a></li>
-        <li><a href="#">Clubs</a></li>
-        <li><a href="#">Academics</a></li>
-      </ul>
-      <!-- ################################################################################################ --> 
-    </nav>
-  </div>
+  <?php require './layout/main-nav.php' ?>
 </div>
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ -->
+
 <div class="wrapper">
   <div id="slider">
     <div id="slide-wrapper" class="rounded clear"> 
@@ -200,33 +152,8 @@ Licence URI: http://www.os-templates.com/template-terms
     </main>
   </div>
 </div>
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ -->
-<div class="wrapper row4">
-  <div class="rounded">
-    <footer id="footer" class="clear"> 
-     <div id="twitter" class="group btmspace-30">
-        <div class="one_quarter first center"><a href="#"><i class="fa fa-twitter fa-3x"></i><br>
-          Follow Us On Twitter</a></div>
-        <div class="three_quarter bold">
-          <p>Inteligula congue id elis donec sce sagittis intes id laoreet aenean. Massawisi condisse leo sem ac tincidunt nibh quis dui fauctor et donecnibh elis velit <a href="#">@name</a> - 10:15 AM yesterday</p>
-        </div>
-      </div>
-    </footer>
-  </div>
-</div>
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ -->
-<div class="wrapper row5">
-  <div id="copyright" class="clear"> 
-    <!-- ################################################################################################ -->
-    <p class="fl_left">Copyright &copy; 2014 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
-    <!-- ################################################################################################ --> 
-  </div>
-</div>
+
+<?php include './layout/footer.php' ?>
 <!-- JAVASCRIPTS --> 
 <script src="layout/scripts/jquery.min.js"></script> 
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 

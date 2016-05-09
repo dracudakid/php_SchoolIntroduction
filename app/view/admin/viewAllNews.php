@@ -97,7 +97,7 @@ Licence URI: http://www.os-templates.com/template-terms
              
             <tbody>
             <?php 
-            	foreach ($news_list as $n) { ?>
+            	foreach ($all_news as $n) { ?>
               <tr>
                 <td><a href=""><?php echo $n->getTitle()?></a></td>
                 <td><?php echo $n->getContent()?></td>

@@ -71,7 +71,7 @@ Licence URI: http://www.os-templates.com/template-terms
         <!-- ################################################################################################ -->
         <h2>Add News</h2>
         <div id="comments">
-          <form action="#" method="post">
+          <form action="index.php?page=admin&&tag=all_news" method="post">
             <div class="one_third first">
               <label for="name">Title<span>*</span></label>
               <input type="text" name="titleNews" id="name" value="" size="22">
@@ -89,7 +89,7 @@ Licence URI: http://www.os-templates.com/template-terms
             </div>
             
             <div>
-              <input name="submit" type="submit" value="SubmitNews">
+              <input name="SubmitNews" type="submit" value="Submit">
               &nbsp;
               <input name="reset" type="reset" value="Reset">
             </div>

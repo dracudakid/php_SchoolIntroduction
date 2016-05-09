@@ -59,22 +59,30 @@ class Controller
 					// to static club_list firstpage
 					include_once 'view/club_list.php';
 				}
-			} elseif ($_GET["page"]=="news_list"){
-				$news_list = (new news())->getAllNews();
-				include_once 'view/admin/viewAllNews.php';
-			} elseif ($_GET["page"]=="news"){
-				$news = new news();
-				if(isset($_POST["SubmitNews"])){
-					$news->setTitle($_POST['titleNews']);
-					echo "title: ".$_POST['titleNews'];
-					$news->setContent($_POST['contentNews']);
-					$news->setImage($_POST['imageNews']);
-					$news->insertNews($news);
-					
-					$this->getAllNews();
+			} elseif ($_GET["page"]=="admin"){
+				if(isset($_GET["tag"])){
+					if($_GET["tag"]=="all_news"){
+						if(isset($_POST["SubmitNews"])){
+							$news = new news();
+							$news->setTitle($_POST['titleNews']);
+							echo "title: ".$_POST['titleNews'];
+							$news->setContent($_POST['contentNews']);
+							$news->setImage($_POST['imageNews']);
+							$news->insertNews($news);
+						}
+						$all_news = (new news())->getAllNews();
+						include_once 'view/admin/viewAllNews.php';
+					}
+					elseif ($_GET["tag"]=="add_news"){
+						include_once 'view/admin/addNews.php';
+						
+						
+						echo "helo";
+						
+					}
 				}
-				include_once 'view/admin/addNews.php';
-			}
+					
+			} 
 			else {
 				$staff_list = (new Staff())->getAllStaff();
 				include_once 'view/staff_list.php';

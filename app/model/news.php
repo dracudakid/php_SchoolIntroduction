@@ -1,5 +1,6 @@
 <?php
 include_once 'helpers/dbConnection.php';
+include_once 'helpers/idProcess.php';
 /**
  * @author Hoai Truong
  *
@@ -68,12 +69,13 @@ class news{
 		$idProcess = new idProcess();
 		$id = "n0".$idProcess->id("id", "news");
 		$news->setId($id);
-		$news->setCreated($news->getCurrentTime());
-		$db = new MysqliConnection();
-		$query = "INSERT INTO news(id, title, content, image, created, creator_id)". 
-				" VALUES('".$new->getId()."','".$news->getTitle()."','".$news->getContent()."', '','".$news->getCreated()."','admin')";
-		$result = $db->init()->query($query);
 		echo "id insert: ".$id;
+		$news->setCreated($news->getCurrentTime());
+		$conn = MysqliConnection::getConnection();
+		$query = "INSERT INTO news(id, title, content, image, created, creator_id)". 
+				" VALUES('".$news->getId()."','".$news->getTitle()."','".$news->getContent()."', '','".$news->getCreated()."','admin')";
+		$result = $conn->query($query);
+		$conn->close();
 	}
 	
 	//get all news order by create date
@@ -101,8 +103,9 @@ class news{
 	}
 	
 	public function getCurrentTime(){
-		$now = new DateTime();
-		return $now; 
+		$date = new DateTime();
+		$result = $date->format('Y-m-d H:i:s');
+		return $result; 
 	}
 }
 

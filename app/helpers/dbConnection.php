@@ -15,7 +15,8 @@
     				echo "Ket noi loi db:".mysqli_connect_error()."<br />";
     			}
        return self::$connection;
-}
-}
+	}
 	
+}
+
 ?>

@@ -1,5 +1,5 @@
 <?php 
-include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php'; 
+include_once __SITE_PATH.'/model/department.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -90,18 +90,18 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
         </div>
         <nav class="pagination">
         <ul>
-          <li><a href="#">Â« Previous</a></li>
+          <li><a href="#">« Previous</a></li>
           <li><a href="#">1</a></li>
           <li><a href="#">2</a></li>
-          <li><strong>â€¦</strong></li>
+          <li><strong>…</strong></li>
           <li><a href="#">6</a></li>
           <li class="current"><strong>7</strong></li>
           <li><a href="#">8</a></li>
           <li><a href="#">9</a></li>
-          <li><strong>â€¦</strong></li>
+          <li><strong>…</strong></li>
           <li><a href="#">14</a></li>
           <li><a href="#">15</a></li>
-          <li><a href="#">Next Â»</a></li>
+          <li><a href="#">Next »</a></li>
         </ul>
       </nav>
         <!-- ################################################################################################ --> 

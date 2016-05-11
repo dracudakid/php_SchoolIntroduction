@@ -19,6 +19,7 @@ class Staff
 		# code...
 	}
 
+
 	public function getAllStaff()
 	{
 		$conn = MysqliConnection::getConnection();
@@ -110,6 +111,24 @@ class Staff
         return $arr;
     }
 
+    public function insertStaff($staff=null)
+    {
+        if($staff==null) $staff = $this;
+        $conn = MysqliConnection::getConnection();
+        $stmt = $conn->prepare("INSERT INTO `staffs` (`id`, `name`, `dob`, `email`, `degree`, `image`, `position`, `department_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+        $stmt->bind_param("ssssssss",
+            $staff->getId(), 
+            $staff->getName(),
+            $staff->getDob(),
+            $staff->getEmail(),
+            $staff->getDegree(),
+            $staff->getImage(),
+            $staff->getPosition(),
+            $staff->getDepartmentId());
+        $stmt->execute();
+        $stmt->close();
+    }
+
     /**
      * Gets the value of id.
      *
@@ -127,7 +146,7 @@ class Staff
      *
      * @return self
      */
-    private function _setId($id)
+    public function _setId($id)
     {
         $this->id = $id;
 
@@ -151,7 +170,7 @@ class Staff
      *
      * @return self
      */
-    private function _setName($name)
+    public function _setName($name)
     {
         $this->name = $name;
 
@@ -175,7 +194,7 @@ class Staff
      *
      * @return self
      */
-    private function _setDob($dob)
+    public function _setDob($dob)
     {
         $this->dob = $dob;
 
@@ -199,7 +218,7 @@ class Staff
      *
      * @return self
      */
-    private function _setEmail($email)
+    public function _setEmail($email)
     {
         $this->email = $email;
 
@@ -223,7 +242,7 @@ class Staff
      *
      * @return self
      */
-    private function _setDegree($degree)
+    public function _setDegree($degree)
     {
         $this->degree = $degree;
 
@@ -247,7 +266,7 @@ class Staff
      *
      * @return self
      */
-    private function _setImage($image)
+    public function _setImage($image)
     {
         $this->image = $image;
 
@@ -271,7 +290,7 @@ class Staff
      *
      * @return self
      */
-    private function _setPosition($position)
+    public function _setPosition($position)
     {
         $this->position = $position;
 
@@ -295,7 +314,7 @@ class Staff
      *
      * @return self
      */
-    private function _setDepartmentId($department_id)
+    public function _setDepartmentId($department_id)
     {
         $this->department_id = $department_id;
 

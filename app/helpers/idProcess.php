@@ -1,5 +1,5 @@
 <?php
-include_once '../helpers/dbConnection.php';
+include_once __SITE_PATH.'/helpers/dbConnection.php';
 
 class idProcess{
 	public function id($idNameCol, $tableName){

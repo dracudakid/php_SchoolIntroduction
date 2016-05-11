@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <title>Meseyside High School</title>
@@ -19,7 +20,6 @@
 <div class="wrapper row2">
   <?php require __SITE_PATH.'/layout/main-nav.php' ?>
 </div>
-
 <div class="wrapper">
   <div id="slider">
     <div id="slide-wrapper" class="rounded clear"> 
@@ -142,6 +142,7 @@
     </main>
   </div>
 </div>
+
 
 <?php include __SITE_PATH.'layout/footer.php' ?>
 <!-- JAVASCRIPTS --> 

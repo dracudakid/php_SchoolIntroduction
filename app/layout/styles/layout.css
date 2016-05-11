@@ -124,6 +124,12 @@ File: Layout CSS
 .search-form button{position:absolute; top:0; right:0; width:35px; font-size:14px; cursor:pointer; color: #F9F9F9; background-color: #55ABDA; border-radius: 0 8px 8px 0;}
 .search-form button em{display:none;}
 
+
+#add-form{display: block; position: relative; width: 100%; max-width: 500px; margin: 0 auto;}
+#add-form input, #add-form button {display: block; padding: 10px; }
+#add-form input, #add-form select {width:100%; padding:10px; border:1px solid;}
+#add-form input[type="submit"], #add-form input[type="reset"] { background-color: #FBFBFB; width: auto; min-width: 150px; display: inline-block; cursor: pointer; }
+
 /* Sidebar */
 .container .sidebar{}
 
@@ -267,7 +273,7 @@ td{border-width:0 1px;}
 
 /* Rounded Corners
 --------------------------------------------------------------------------------------------------------------- */
-.rounded, input, button, textarea, #header input, #footer input, #slide-wrapper figcaption, .avatar, #comments li, .faico a, #twitter, 
+.rounded, input, select, button, textarea, #header input, #footer input, #slide-wrapper figcaption, .avatar, #comments li, .faico a, #twitter, 
 .pagination a, .pagination strong{border-radius:8px;}
 
 #header button, #footer button{border-radius:0 8px 8px 0;}
@@ -371,6 +377,11 @@ table a, #comments a{background-color:inherit;}
 
 .clearfix{
   overflow: auto;
+}
+
+#image-preview{
+  padding: 5px;
+  max-height: 250px;
 }
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */

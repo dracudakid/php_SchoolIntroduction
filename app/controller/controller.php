@@ -1,8 +1,9 @@
-<?php 
+<?php
 include_once 'model/department.php';
 include_once 'model/staff.php';
 include_once 'model/news.php';
 include_once 'model/club.php';
+include_once 'helpers/idProcess.php';
 /**
 * 
 */
@@ -84,38 +85,86 @@ class Controller
 						switch ($_GET["tag"]) {
 							// page=admin&&tag=all_news
 							case 'all_news':
-								# code...
+								if(isset($_POST["SubmitNews"])){
+									$news = new news();
+									$news->setTitle($_POST['titleNews']);
+									echo "title: ".$_POST['titleNews'];
+									$news->setContent($_POST['contentNews']);
+
+									$news->setImage($_POST['imageNews']);
+									$news->insertNews($news);
+								}
+								$all_news = (new news())->getAllNews();
+								include_once 'view/admin/viewAllNews.php';
+								if(isset($_GET['idNews'])){
+									$idNews = $_GET['idNews'];
+									
+								}
 								break;
 
 							// page=admin&&tag=add_news
 							case 'add_news':
-								# code...
+								include_once 'view/admin/addNews.php';
 								break;
 
+							// page=admin&&tag=all_staffs
+							case 'all_staffs':
+
+								// page=admin&&tag=all_staffs&&search=...
+								if (isset($_GET["search"])) {
+									$staff_list = (new Staff())->getStaffListByName($_GET["search"]);
+									include_once 'view/admin/staff_table.php';
+								}
+								else{
+									$staff_list = (new Staff())->getAllStaff();
+									include_once 'view/admin/all_staffs.php';
+								}
+								
+								break;
+
+							// page=admin&&tag=add_staff
+							case 'add_staff':
+								// add to database and show the staff_list
+								if(isset($_POST["id"])){
+									$staff = new Staff();
+									$staff->_setId($_POST["id"]);
+									$staff->_setName($_POST["name"]);
+									$staff->_setDob($_POST["dob"]);
+									$staff->_setEmail($_POST["email"]);
+									$staff->_setDegree($_POST["degree"]);
+									
+									// send upload file to images directory
+									var_dump($_FILES['image']);
+									$image_fp = 'images/'.$_POST["id"].'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+									move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
+									$staff->_setImage($image_fp);
+									$staff->_setPosition($_POST["position"]);
+									$staff->_setDepartmentId($_POST["department"]);
+
+									$staff->insertStaff();
+									header('location: index.php?page=admin&tag=all_staffs');
+								}
+								// show the add staff form
+								else{
+									$id = "st".(new idProcess())->id("id", "staffs");
+									$dep_list = (new Department())->getDepartmentList();
+									include_once 'view/admin/add_staff.php';
+								}
+								break;
 							default:
 								# code...
 								break;
 						}
-					} else {
-						# code...
+					} 
+					// page=admin
+					else {
+						$news_list = (new news())->getAllNews();
+						include_once 'view/admin/viewAllNews.php';
+						break;
 					}
-					
-					$news_list = (new news())->getAllNews();
-					include_once 'view/admin/viewAllNews.php';
-					break;
 
 				// page=new
 				case 'news':
-					$news = new news();
-					if(isset($_POST["SubmitNews"])){
-						$news->setTitle($_POST['titleNews']);
-						echo "title: ".$_POST['titleNews'];
-						$news->setContent($_POST['contentNews']);
-						$news->setImage($_POST['imageNews']);
-						$news->insertNews($news);
-						
-						$this->getAllNews();
-						include_once 'view/admin/addNews.php';
 					break;
 
 
@@ -123,7 +172,7 @@ class Controller
 					$staff_list = (new Staff())->getAllStaff();
 					include_once 'view/staff_list.php';
 					break;
-			}
+					}
 		} else{
 			include_once 'view/home.php';
 		}

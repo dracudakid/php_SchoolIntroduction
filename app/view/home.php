@@ -144,7 +144,7 @@
 </div>
 
 
-<?php include __SITE_PATH.'layout/footer.php' ?>
+<?php include 'layout/footer.php' ?>
 <!-- JAVASCRIPTS --> 
 <script src="layout/scripts/jquery.min.js"></script> 
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 

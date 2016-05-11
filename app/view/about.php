@@ -30,10 +30,6 @@ Licence URI: http://www.os-templates.com/template-terms
 	
 <!-- ################################################################################################ -->
 
-<div class="wrapper">
-  <?php require '../layout/extra-nav.php' ?>
-</div>
-
 <div class="wrapper row3">
   <div class="rounded">
     <main class="container clear"> 
@@ -89,45 +85,7 @@ Licence URI: http://www.os-templates.com/template-terms
         <p>This is a W3C compliant free website template from <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a>. For full terms of use of this template please read our <a href="http://www.os-templates.com/template-terms">website template licence</a>.</p>
         <p>You can use and modify the template for both personal and commercial use. You must keep all copyright information and credit links in the template and associated files. For more website templates visit <a href="http://www.os-templates.com/">free website templates</a>.</p>
         <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus.</p>
-        <h1>Table(s)</h1>
-        <div class="scrollable">
-          <table>
-            <thead>
-              <tr>
-                <th>Header 1</th>
-                <th>Header 2</th>
-                <th>Header 3</th>
-                <th>Header 4</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><a href="#">Value 1</a></td>
-                <td>Value 2</td>
-                <td>Value 3</td>
-                <td>Value 4</td>
-              </tr>
-              <tr>
-                <td>Value 5</td>
-                <td>Value 6</td>
-                <td>Value 7</td>
-                <td><a href="#">Value 8</a></td>
-              </tr>
-              <tr>
-                <td>Value 9</td>
-                <td>Value 10</td>
-                <td>Value 11</td>
-                <td>Value 12</td>
-              </tr>
-              <tr>
-                <td>Value 13</td>
-                <td><a href="#">Value 14</a></td>
-                <td>Value 15</td>
-                <td>Value 16</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+       
         <div id="comments">
           <h2>Comments</h2>
           <ul>
@@ -263,8 +221,8 @@ Licence URI: http://www.os-templates.com/template-terms
   </div>
 </div>
 <!-- JAVASCRIPTS --> 
-<script src="../layout/scripts/jquery.min.js"></script> 
-<script src="../layout/scripts/jquery.fitvids.min.js"></script> 
-<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+<script src="layout/scripts/jquery.min.js"></script> 
+<script src="layout/scripts/jquery.fitvids.min.js"></script> 
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
 </body>
 </html>

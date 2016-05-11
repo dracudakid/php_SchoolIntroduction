@@ -19,7 +19,6 @@ Licence URI: http://www.os-templates.com/template-terms
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 <link rel="stylesheet" href="layout/scripts/sweetalert-master/dist/sweetalert.css">
-<link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
 
 
 </head>
@@ -84,12 +83,13 @@ Licence URI: http://www.os-templates.com/template-terms
           <form class="search-form" method="post" action="#">
             <fieldset>
               <legend>Search:</legend>
-              <input type="text" value="" placeholder="Search Here">
+              <input id="txtSearch" type="text" value="" placeholder="Search Here" onkeyup="searchNews(this.value)">
               <button class="fa fa-search" type="submit" title="Search"><em>Search</em></button>
             </fieldset>
           </form>
         </div>
         <div class="scrollable">
+        <div id="news">
           <table>
             <thead>
               <tr>
@@ -102,27 +102,29 @@ Licence URI: http://www.os-templates.com/template-terms
             </thead>
              
             <tbody>
-            <?php 
-            	foreach ($all_news as $n) { ?>
-              <tr>
-                <td><a href=""><?php echo $n->getTitle()?></a></td>
-                <td><?php echo $n->getContent()?></td>
-                <td><?php echo $n->getCreated()?></td>
-                <td><?php echo $n->getCreator_id()?></td>
-                <td>
-                	<div style="text-align: center;">
-	                	<a class="fa fa-pencil-square-o" aria-hidden="true" 
-	                		href="index.php?page=admin&tag=edit_news&idNews=<?php echo $n->getId() ?>">
-	                	 </a>
-	                	<a class="fa fa-trash" aria-hidden="true" id="b4"
-	                		onclick="deleteNews('<?php echo $n->getId() ?>')">
-	                	</a>
-                	</div>
-				</td>
-              </tr>
-             <?php }?>
+	            <?php 
+	            	foreach ($all_news as $n) { ?>
+	              <tr>
+	                <td><a href=""><?php echo $n->getTitle()?></a></td>
+	                <td><?php echo $n->getContent()?></td>
+	                <td><?php echo $n->getCreated()?></td>
+	                <td><?php echo $n->getCreator_id()?></td>
+	                <td>
+	                	<div style="text-align: center;">
+		                	<a class="fa fa-pencil-square-o" aria-hidden="true" 
+		                		href="index.php?page=admin&tag=edit_news&idNews=<?php echo $n->getId() ?>">
+		                	 </a>
+		                	<a class="fa fa-trash" aria-hidden="true" id="b4"
+		                		onclick="deleteNews('<?php echo $n->getId() ?>')">
+		                	</a>
+	                	</div>
+					</td>
+	              </tr>
+	             <?php }?>
+             
             </tbody>
           </table>
+          </div>
         </div>
         <div id="comments">
           <h2>Comments</h2>
@@ -209,13 +211,13 @@ Licence URI: http://www.os-templates.com/template-terms
 
 <script src="layout/scripts/sweetalert-master/dist/sweetalert.min.js"></script>
 <script src="layout/scripts/sweetalert-master/dist/sweetalert-dev.js"></script>
-<script src="layout/scripts/bootstrap-3.3.6-dist/js/bootstrap.js"></script> 
-<script src="layout/scripts/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script> 
 <script src="layout/scripts/jquery.min.js"></script> 
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 
 <script src="layout/scripts/jquery.mobilemenu.js"></script> 
 <script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
 <script type="text/javascript">
+
+	//comfirm delete
 	function deleteNews(id){
 		swal(
 			{   
@@ -229,13 +231,30 @@ Licence URI: http://www.os-templates.com/template-terms
 				$.ajax({
 					url: "index.php?page=admin&tag=delete_news&idNews="+id,
 					success: function(){
-						swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
-						window.location="index.php?page=admin&tag=all_news";
+						swal({
+							title: "Deleted",   
+							type: "success"
+						}, function(){
+							window.location="index.php?page=admin&tag=all_news";
+						}); 
+						
 						}
 					})
 					
 				});
 	};
+
+	//search
+	function searchNews(searchValue) {
+	    var xmlhttp = new XMLHttpRequest();
+	    xmlhttp.onreadystatechange = function() {
+	      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        document.getElementById("news").innerHTML = xmlhttp.responseText;
+	      }
+	    }
+	    xmlhttp.open("GET", "index.php?page=admin&tag=all_news&search=" + searchValue, true);
+	    xmlhttp.send();
+	  }
 </script>
 </body>
 </html>

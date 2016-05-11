@@ -74,7 +74,7 @@ Licence URI: http://www.os-templates.com/template-terms
        	
         <h2>Add News</h2>
         <div id="comments">
-          <form action="index.php?page=admin&&tag=all_news" method="post">
+          <form action="index.php?page=admin&&tag=all_news" method="post" enctype="multipart/form-data">
             <div class="one_third first">
               <label for="title">Title<span>*</span></label>
               <input type="text" name="titleNews" id="title" value="<?php if($news_edit != null) 
@@ -82,9 +82,9 @@ Licence URI: http://www.os-templates.com/template-terms
             </div>
             
             <div class="one_third first">
-              <label for="image">Image<span>*</span></label>
-              <input type="file" name="imageNews" id="image">
-              <img alt="" src="/php_schoolIntroduction/app/images/demo/avatar.png">
+              <label for="imgInp">Image<span>*</span></label>
+              <input type="file" name="image" id="imgInp" accept="image/*">
+              <img src="<?php if($news_edit != null) echo $news_edit->getImage()?>" alt="" id="image-preview" class="borderedbox">
             </div>
             
             <div class="block clear">
@@ -121,5 +121,21 @@ Licence URI: http://www.os-templates.com/template-terms
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 
 <script src="layout/scripts/jquery.mobilemenu.js"></script> 
 <script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
+
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $('#image-preview').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+$("#imgInp").change(function(){
+    readURL(this);
+});
+</script>
+
 </body>
 </html>

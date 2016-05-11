@@ -1,5 +1,6 @@
 <?php 
 include_once __SITE_PATH.'/model/news.php'; 
+
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +18,10 @@ Licence URI: http://www.os-templates.com/template-terms
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="layout/scripts/sweetalert-master/dist/sweetalert.css">
+<link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+
+
 </head>
 <body id="top">
 <div class="wrapper row0">
@@ -27,6 +32,7 @@ Licence URI: http://www.os-templates.com/template-terms
 <div class="wrapper row1">
   <?php include __SITE_PATH.'/layout/header.php' ?>
 </div>
+
 
 <!-- ################################################################################################ --> 
 
@@ -104,8 +110,14 @@ Licence URI: http://www.os-templates.com/template-terms
                 <td><?php echo $n->getCreated()?></td>
                 <td><?php echo $n->getCreator_id()?></td>
                 <td>
-                	<img alt="" src="/php_schoolIntroduction/app/images/demo/avatar.png">
-                	<img alt="" src="/php_schoolIntroduction/app/images/delete_icon.png">
+                	<div style="text-align: center;">
+	                	<a class="fa fa-pencil-square-o" aria-hidden="true" 
+	                		href="index.php?page=admin&tag=edit_news&idNews=<?php echo $n->getId() ?>">
+	                	 </a>
+	                	<a class="fa fa-trash" aria-hidden="true" id="b4"
+	                		onclick="deleteNews('<?php echo $n->getId() ?>')">
+	                	</a>
+                	</div>
 				</td>
               </tr>
              <?php }?>
@@ -192,11 +204,38 @@ Licence URI: http://www.os-templates.com/template-terms
   </div>
 </div>
 
-<?php include '../../layout/footer.php' ?>
+<?php include 'layout/footer.php' ?>
 <!-- JAVASCRIPTS --> 
+
+<script src="layout/scripts/sweetalert-master/dist/sweetalert.min.js"></script>
+<script src="layout/scripts/sweetalert-master/dist/sweetalert-dev.js"></script>
+<script src="layout/scripts/bootstrap-3.3.6-dist/js/bootstrap.js"></script> 
+<script src="layout/scripts/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script> 
 <script src="layout/scripts/jquery.min.js"></script> 
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 
 <script src="layout/scripts/jquery.mobilemenu.js"></script> 
 <script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
+<script type="text/javascript">
+	function deleteNews(id){
+		swal(
+			{   
+				title: "Are you sure?",   
+				text: "You will not be able to recover this imaginary file!",   
+				type: "warning",   showCancelButton: true,   
+				confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, delete it!",   
+				closeOnConfirm: false 
+			}, 
+				function(){   
+				$.ajax({
+					url: "index.php?page=admin&tag=delete_news&idNews="+id,
+					success: function(){
+						swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
+						window.location="index.php?page=admin&tag=all_news";
+						}
+					})
+					
+				});
+	};
+</script>
 </body>
 </html>

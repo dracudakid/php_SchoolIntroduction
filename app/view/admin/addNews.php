@@ -69,25 +69,33 @@ Licence URI: http://www.os-templates.com/template-terms
       
       <div id="content" class="three_quarter"> 
         <!-- ################################################################################################ -->
+        
+       	<!-- if viewAllNews request check -->
+       	
         <h2>Add News</h2>
         <div id="comments">
           <form action="index.php?page=admin&&tag=all_news" method="post">
             <div class="one_third first">
-              <label for="name">Title<span>*</span></label>
-              <input type="text" name="titleNews" id="name" value="" size="22">
+              <label for="title">Title<span>*</span></label>
+              <input type="text" name="titleNews" id="title" value="<?php if($news_edit != null) 
+              	echo $news_edit->getTitle()?>" size="22">
             </div>
             
             <div class="one_third first">
               <label for="image">Image<span>*</span></label>
-              <input type="file" name="imageNews" id="imagefile">
+              <input type="file" name="imageNews" id="image">
               <img alt="" src="/php_schoolIntroduction/app/images/demo/avatar.png">
             </div>
             
             <div class="block clear">
               <label for="content">Content<span>*</span></label>
-              <textarea name="contentNews" id="content" cols="25" rows="10" class="ckeditor" class="input-long"></textarea>
+              <textarea name="contentNews" id="content" cols="25" rows="10" class="ckeditor" 
+              class="input-long" ><?php if($news_edit != null) echo $news_edit->getContent()?></textarea>
             </div>
             
+            <div>
+            	<input type="hidden" value="<?php if($news_edit != null) echo $news_edit->getId()?>" name="idNews"/>
+            </div>
             <div>
               <input name="SubmitNews" type="submit" value="Submit">
               &nbsp;

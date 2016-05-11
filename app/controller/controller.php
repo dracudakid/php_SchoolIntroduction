@@ -76,6 +76,22 @@ class Controller
 						include_once 'view/club_list.php';
 					}
 					break;
+					
+				//page=news_list	
+				case 'news_list':
+					$all_news = (new news())->getAllNews();
+					$best_news = (new news())->getNewsViewTheMost();
+					include_once 'view/news_list.php';
+					break;
+				case 'news_detail':
+					if(isset($_GET['idNews'])){
+						$idNews = $_GET['idNews'];
+						$news_detail = (new news())->updateViewQuantity($idNews);
+						$news_detail = (new news())->getNewsById($idNews);
+						$best_news = (new news())->getNewsViewTheMost();
+						include_once 'view/news_list_detail.php';
+					}
+					break;
 				// page=admin
 				case 'admin':
 
@@ -90,31 +106,55 @@ class Controller
 									echo "title: ".$_POST['titleNews'];
 									$news->setContent($_POST['contentNews']);
 									$news->setImage($_POST['imageNews']);
-									$news->insertNews($news);
+									$news->setId($_POST['idNews']);
+									$idNews = $_POST['idNews'];
+									if($idNews == null || $idNews == ""){
+										echo "insert";
+										$news->insertNews($news);
+									}
+									else{
+										echo "update";
+										$news->updateNews($news);
+									}
 								}
 								$all_news = (new news())->getAllNews();
 								include_once 'view/admin/viewAllNews.php';
+								break;
+
+							//page=admin&tag=add_news
+							case 'add_news':
+								$news_edit = null;
+								include_once 'view/admin/addNews.php';
+								
+							// page=admin&tag=edit
+							case 'edit_news':
+								$news_edit = new news();
+								//edit news by id
 								if(isset($_GET['idNews'])){
 									$idNews = $_GET['idNews'];
-									
+									$news_edit = $news_edit->getNewsById($idNews);
 								}
-								break;
-
-							// page=admin&&tag=add_news
-							case 'add_news':
 								include_once 'view/admin/addNews.php';
 								break;
-
+							case 'delete_news':
+								$news_delete = new news();
+								//edit news by id
+								if(isset($_GET['idNews'])){
+									$idNews = $_GET['idNews'];
+									$news_delete = $news_delete->deleteNews($idNews);
+								}
+								include_once 'view/admin/viewAllNews.php';
+								break;	
 							default:
 								# code...
 								break;
 						}
 					} else {
-						# code...
+						$news_list = (new news())->getAllNews();
+						include_once 'view/admin/viewAllNews.php';
 					}
 					
-					$news_list = (new news())->getAllNews();
-					include_once 'view/admin/viewAllNews.php';
+					
 					break;
 
 				// page=new

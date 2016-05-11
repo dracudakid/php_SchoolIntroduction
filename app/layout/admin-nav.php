@@ -4,8 +4,8 @@
 		<li><a href="index.php">Home</a></li>
 		<li><a href="#">News</a>
 			<ul>
-				<li><a href="index.php?page=admin&&tag=add_news">Add News</a></li>
-				<li><a href="index.php?page=admin&&tag=all_news">View All News</a></li>
+				<li><a href="index.php?page=admin&tag=add_news">Add News</a></li>
+				<li><a href="index.php?page=admin&tag=all_news">View All News</a></li>
 			</ul></li>
 		<li><a href="#">Staff</a>
 			<ul>

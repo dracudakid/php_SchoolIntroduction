@@ -6,6 +6,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="layout/scripts/sweetalert-master/dist/sweetalert.css">
+<!-- <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'> -->
 </head>
 <body id="top">
 <div class="wrapper row0">
@@ -58,6 +60,8 @@
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 
 <script src="layout/scripts/jquery.mobilemenu.js"></script> 
 <script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
+<script src="layout/scripts/sweetalert-master/dist/sweetalert.min.js"></script>
+<!-- <script src="layout/scripts/sweetalert-master/dist/sweetalert-dev.js"></script> -->
 <script type="text/javascript">
   function searchStaff(searchValue) {
     $.ajax({
@@ -65,7 +69,30 @@
       success: function(result){
         $("#staffs").html(result);
     }});
-  }
+  };
+
+  function deleteStaff(staffId) {
+    console.log(staffId);
+    swal(
+      {   
+        title: "Are you sure?",   
+        text: "You will not be able to recover this imaginary file!",   
+        type: "warning",   showCancelButton: true,   
+        confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, delete it!",   
+        closeOnConfirm: false 
+      }, 
+      function(){   
+        $.ajax({
+          url: "index.php?page=admin&tag=delete_staff&staffId="+staffId,
+          success: function(){
+            swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
+              searchStaff("");
+            }
+          })
+          
+        }
+    );
+  };
 </script>
 </body>
 </html>

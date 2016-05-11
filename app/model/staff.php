@@ -129,6 +129,14 @@ class Staff
         $stmt->close();
     }
 
+    public function deleteStaff($staffId)
+    {
+        $conn = MysqliConnection::getConnection();
+        $sql = "delete from staffs where id='$staffId';";
+        $conn->query($sql);
+        $conn->close();
+    }
+
     /**
      * Gets the value of id.
      *

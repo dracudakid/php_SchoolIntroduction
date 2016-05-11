@@ -146,10 +146,16 @@ class Controller
 								}
 								// show the add staff form
 								else{
-									$id = "st".(new idProcess())->id("id", "staffs");
+									$id = "st".(new idProcess())->id("id", "staffs", 3);
 									$dep_list = (new Department())->getDepartmentList();
 									include_once 'view/admin/add_staff.php';
 								}
+								break;
+							
+							// page=admin&tag=delete_staff&staffId=
+							case 'delete_staff':
+								$staffId = $_GET["staffId"];
+								(new Staff())->deleteStaff($staffId);
 								break;
 							default:
 								# code...

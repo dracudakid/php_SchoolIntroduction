@@ -25,8 +25,9 @@
       <td><?php echo $s->getDegree()?></td>
       <td><?php echo $s->getPosition()?></td>
       <td>
-        <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a> /
-        <a href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+        <a ><i class="fa fa-pencil" aria-hidden="true"></i></a> /
+        <a id="delete-staff" onclick="deleteStaff('<?php echo $s->getId(); ?>')">
+          <i class="fa fa-trash" aria-hidden="true"></i></a>
       </td>
     </tr>
    <?php }?>

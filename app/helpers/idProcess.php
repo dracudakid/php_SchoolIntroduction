@@ -2,9 +2,10 @@
 include_once __SITE_PATH.'/helpers/dbConnection.php';
 
 class idProcess{
-	public function id($idNameCol, $tableName){
+
+	public function id($idNameCol, $tableName, $startIndex = 3){
 		$db = new MysqliConnection();
-		$query = "SELECT MAX(cast(SUBSTRING(".$idNameCol.",3,3)as int)) as iD ".
+		$query = "SELECT MAX(cast(SUBSTRING($idNameCol,$startIndex)as int)) as iD ".
 				"FROM  ".$tableName;
 		echo $query;
 		$result = $db->getConnection()->query($query);

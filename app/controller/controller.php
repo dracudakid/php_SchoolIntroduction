@@ -157,6 +157,33 @@ class Controller
 								$staffId = $_GET["staffId"];
 								(new Staff())->deleteStaff($staffId);
 								break;
+
+							case 'edit_staff':
+								if (isset($_POST["id"])) {
+									$staff = new Staff();
+									$staff->_setId($_POST["id"]);
+									$staff->_setName($_POST["name"]);
+									$staff->_setDob($_POST["dob"]);
+									$staff->_setEmail($_POST["email"]);
+									$staff->_setDegree($_POST["degree"]);
+									// send upload file to images directory
+									var_dump($_FILES['image']);
+									$image_fp = 'images/'.$_POST["id"].'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+									move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
+									$staff->_setImage($image_fp);
+									$staff->_setPosition($_POST["position"]);
+									$staff->_setDepartmentId($_POST["department"]);
+									$staff->editStaff();
+									header('location: index.php?page=admin&tag=all_staffs');
+								}
+								else{
+									$id = $_GET["staffId"];
+									$dep_list = (new Department())->getDepartmentList();
+									$staff = (new Staff())->getStaffById($id);
+									include_once 'view/admin/add_staff.php';
+								}
+								
+								break;
 							default:
 								# code...
 								break;

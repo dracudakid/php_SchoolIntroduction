@@ -129,12 +129,51 @@ class Staff
         $stmt->close();
     }
 
+    public function editStaff($value=null)
+    {
+        if($staff==null) $staff = $this;
+        $conn = MysqliConnection::getConnection();
+        $stmt = $conn->prepare("UPDATE staffs 
+            SET name=?, dob=?, email=?, degree=?,image=?,position=?,department_id=?  WHERE `staffs`.`id` = ?;");
+        $stmt->bind_param("ssssssss",
+            $staff->getName(),
+            $staff->getDob(),
+            $staff->getEmail(),
+            $staff->getDegree(),
+            $staff->getImage(),
+            $staff->getPosition(),
+            $staff->getDepartmentId(),
+            $staff->getId());
+        $stmt->execute();
+        $stmt->close();
+    }
+
     public function deleteStaff($staffId)
     {
         $conn = MysqliConnection::getConnection();
         $sql = "delete from staffs where id='$staffId';";
         $conn->query($sql);
         $conn->close();
+    }
+
+    public function getStaffById($staffId)
+    {
+        $conn = MysqliConnection::getConnection();
+        $sql = "select * from staffs where id='$staffId';";
+        $s = new Staff();
+        $result = $conn->query($sql);
+        while($items = mysqli_fetch_assoc($result)){
+            $s->_setId($items["id"]);
+            $s->_setName($items["name"]);
+            $s->_setDob($items["dob"]);
+            $s->_setEmail($items["email"]);
+            $s->_setDegree($items["degree"]);
+            $s->_setImage($items["image"]);
+            $s->_setPosition($items["position"]);
+            $s->_setDepartmentId($items["department_id"]);
+        }
+        $conn->close();
+        return $s;
     }
 
     /**

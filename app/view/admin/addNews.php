@@ -35,19 +35,8 @@ Licence URI: http://www.os-templates.com/template-terms
         <!-- ################################################################################################ -->
         
         <?php require __SITE_PATH.'/layout/admin-nav.php' ?>
-        <div class="sdb_holder">
-          <h6>Lorem ipsum dolor</h6>
-          <address>
-          Full Name<br>
-          Address Line 1<br>
-          Address Line 2<br>
-          Town/City<br>
-          Postcode/Zip<br>
-          <br>
-          Tel: xxxx xxxx xxxxxx<br>
-          Email: <a href="#">contact@domain.com</a>
-          </address>
-        </div>
+
+        <!-- ################################################################################################ --> 
       </div>
       <!-- ################################################################################################ --> 
       <!-- Add News -->
@@ -64,11 +53,11 @@ Licence URI: http://www.os-templates.com/template-terms
             <div class="one_third first">
               <label for="title">Title<span>*</span></label>
               <input type="text" name="titleNews" id="title" value="<?php if($news_edit != null) 
-              	echo $news_edit->getTitle()?>" size="22" required>
+              	echo $news_edit->getTitle()?>" size="22">
             </div>
             
             <div class="one_third first">
-              <label for="imgInp">Image</label>
+              <label for="imgInp">Image<span>*</span></label>
               <input type="file" name="image" id="imgInp" accept="image/*">
               <img src="<?php if($news_edit != null) echo $news_edit->getImage()?>" alt="" id="image-preview" class="borderedbox">
             </div>
@@ -76,7 +65,7 @@ Licence URI: http://www.os-templates.com/template-terms
             <div class="block clear">
               <label for="content">Content<span>*</span></label>
               <textarea name="contentNews" id="content" cols="25" rows="10" class="ckeditor" 
-              class="input-long" required ><?php if($news_edit != null) echo $news_edit->getContent()?></textarea>
+              class="input-long" ><?php if($news_edit != null) echo $news_edit->getContent()?></textarea>
             </div>
             
             <div>

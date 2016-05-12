@@ -29,3 +29,11 @@
 	</ul>
 </nav>
 
+<div class="sdb_holder">
+	<h6>Melwood High School</h6>
+	<address>
+		Address: 86 Brattle Street<br> Cambridge, MA 02138<br>
+		Tel: (617) 495-1551<br> <br>Fax: (617) 495-8821<br> Email: <a href="#">melwood@mhs.ame.com</a>
+	</address>
+</div>
+

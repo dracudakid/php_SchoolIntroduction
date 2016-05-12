@@ -403,6 +403,11 @@ class Controller
 					break;
 					}
 		} else{
+			if (isset($_GET['recent']) && $_GET['recent'] == 'news_recently'){
+				$news_recently = (new news())->getNewsRecently();
+				include_once 'view/left_news.php';
+		//		break;
+			}
 			include_once 'view/home.php';
 		}
 

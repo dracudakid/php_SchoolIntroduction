@@ -47,6 +47,7 @@ Licence URI: http://www.os-templates.com/template-terms
         <?php require __SITE_PATH.'/layout/admin-nav.php' ?>
         
       </div>
+      
       <!-- ################################################################################################ --> 
       <!-- ################################################################################################ -->
       <div id="content" class="three_quarter"> 

@@ -1,13 +1,17 @@
+<?php 
+include_once __SITE_PATH.'/model/news.php'; 
+?>
+
 <!DOCTYPE html>
 
 <html>
 <head>
-<title>Meseyside High School</title>
+<title>Melwood High School</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 </head>
-<body id="top">
+<body id="top" onload="load_recent()">
 <div class="wrapper row0">
   <?php include __SITE_PATH.'/layout/topbar.php' ?>
 </div>
@@ -24,48 +28,48 @@
   <div id="slider">
     <div id="slide-wrapper" class="rounded clear"> 
       <!-- ################################################################################################ -->
-      <figure id="slide-1"><a class="view" href="#"><img src="images/demo/slider/1.png" alt=""></a>
+      <figure id="slide-1"><a class="view" href="#"><img src="images/header/melwood.png" alt=""></a>
         <figcaption>
-          <h2>Nullamlacus dui ipsum</h2>
+          <h2>Melwood High School</h2>
+          <p>Welcome to the online information resource of Melwood High School's Commencement Office.</p>
+          <p class="right"><a href="index.php?page=about">Continue Reading &raquo;</a></p>
+        </figcaption>
+      </figure>
+      <figure id="slide-2"><a class="view" href="#"><img src="images/header/should_study.png" alt=""></a>
+        <figcaption>
+          <h2>Why You Should Study With Us</h2>
           <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et ac vest penatibus id lacus parturpis.</p>
           <p class="right"><a href="#">Continue Reading &raquo;</a></p>
         </figcaption>
       </figure>
-      <figure id="slide-2"><a class="view" href="#"><img src="images/demo/slider/2.png" alt=""></a>
+      <figure id="slide-3"><a class="view" href="#"><img src="images/header/experence.png" alt=""></a>
         <figcaption>
-          <h2>Aliquatjusto quisque nam</h2>
-          <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et ac vest penatibus id lacus parturpis.</p>
+          <h2>Academic Experience</h2>
+          <p>With an enduring dedication to the pursuit of excellence, Melwood High School offers unparalleled student experiences across a broad spectrum of academic environments.</p>
           <p class="right"><a href="#">Continue Reading &raquo;</a></p>
         </figcaption>
       </figure>
-      <figure id="slide-3"><a class="view" href="#"><img src="images/demo/slider/3.png" alt=""></a>
+      <figure id="slide-4"><a class="view" href="#"><img src="images/header/volunteer.png" alt=""></a>
         <figcaption>
-          <h2>Aliquatjusto quisque nam</h2>
-          <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et ac vest penatibus id lacus parturpis.</p>
+          <h2>Volunteer</h2>
+          <p>Do you want to be more involved with public service organizations in and around New York City? The Melwood Club of New York Non-Profit Board Recruitment Fair, sponsored by the Center for Public Interest Careers (CPIC), </p>
           <p class="right"><a href="#">Continue Reading &raquo;</a></p>
         </figcaption>
       </figure>
-      <figure id="slide-4"><a class="view" href="#"><img src="images/demo/slider/4.png" alt=""></a>
+      <figure id="slide-5"><a class="view" href="#"><img src="images/header/event.png" alt=""></a>
         <figcaption>
-          <h2>Aliquatjusto quisque nam</h2>
-          <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et ac vest penatibus id lacus parturpis.</p>
-          <p class="right"><a href="#">Continue Reading &raquo;</a></p>
-        </figcaption>
-      </figure>
-      <figure id="slide-5"><a class="view" href="#"><img src="images/demo/slider/5.png" alt=""></a>
-        <figcaption>
-          <h2>Dapiensociis temper donec</h2>
-          <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et ac vest penatibus id lacus parturpis.</p>
-          <p class="right"><a href="#">Continue Reading &raquo;</a></p>
+          <h2>Latest School News &amp; Events</h2>
+		  <p>John McDonnell (Deputy Principal at Melwood High School) has held nearly every role imaginable at Cycling New Zealand. A former councillor, board </p>
+          <p class="right"><a href="index.php?page=news_list">Continue Reading &raquo;</a></p>
         </figcaption>
       </figure>
       <!-- ################################################################################################ -->
       <ul id="slide-tabs">
         <li><a href="#slide-1">All About The School</a></li>
         <li><a href="#slide-2">Why You Should Study With Us</a></li>
-        <li><a href="#slide-3">Education And Student Experience</a></li>
-        <li><a href="#slide-4">Alumni And Its Donors</a></li>
-        <li><a href="#slide-5">Latest University News &amp; Events</a></li>
+        <li><a href="#slide-3">Academic Experience</a></li>
+        <li><a href="#slide-4">Volunteer</a></li>
+        <li><a href="#slide-5">Latest School News &amp; Events</a></li>
       </ul>
       <!-- ################################################################################################ --> 
     </div>
@@ -78,62 +82,28 @@
       <!-- main body --> 
       <!-- ################################################################################################ -->
       <div class="group btmspace-30"> 
+      
         <!-- Left Column -->
-        <div class="one_quarter first"> 
-          <!-- ################################################################################################ -->
-          <ul class="nospace">
-            <li class="btmspace-15"><a href="#"><em class="heading">Prospective Students</em> <img class="borderedbox" src="images/demo/220x95.gif" alt=""></a></li>
-            <li class="btmspace-15"><a href="#"><em class="heading">Current Students</em> <img class="borderedbox" src="images/demo/220x95.gif" alt=""></a></li>
-            <li class="btmspace-15"><a href="#"><em class="heading">International Students</em> <img class="borderedbox" src="images/demo/220x95.gif" alt=""></a></li>
-            <li><a href="#"><em class="heading">Alumni</em> <img class="borderedbox" src="images/demo/220x95.gif" alt=""></a></li>
-          </ul>
-          <!-- ################################################################################################ --> 
-        </div>
+		<div class="one_quarter first">
+		<div id = "list_recent" >
+		</div>
+		</div>
         <!-- / Left Column --> 
+        
         <!-- Middle Column -->
-        <div class="one_half"> 
+        <div style="width: 72%;" class="one_half"> 
           <!-- ################################################################################################ -->
-          <h2>Latest News &amp; Events</h2>
-          <ul class="nospace listing">
-            <li class="clear">
-              <div class="imgl borderedbox"><img src="images/demo/120x120.gif" alt=""></div>
-              <p class="nospace btmspace-15"><a href="#">Sentumquisque morbi dui congue.</a></p>
-              <p>This is a W3C compliant free website template from <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a>. This template is distributed using a <a href="http://www.os-templates.com/template-terms">Website Template Licence</a></p>
-            </li>
-            <li class="clear">
-              <div class="imgl borderedbox"><img src="images/demo/120x120.gif" alt=""></div>
-              <p class="nospace btmspace-15"><a href="#">Sentumquisque morbi dui congue.</a></p>
-              <p>You can use and modify the template for both personal and commercial use. You must keep all copyright information and credit links in the template and associated files.</p>
-            </li>
-            <li class="clear">
-              <div class="imgl borderedbox"><img src="images/demo/120x120.gif" alt=""></div>
-              <p class="nospace btmspace-15"><a href="#">Sentumquisque morbi dui congue.</a></p>
-              <p>For more CSS templates visit <a href="http://www.os-templates.com/">Free Website Templates</a>. Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et ac vest penatibus id lacus parturpis.</p>
-            </li>
-          </ul>
-          <p class="right"><a href="#">Click here to view all of the latest news and events &raquo;</a></p>
+          <h2>WELCOME</h2>
+          <p>Welcome to the online information resource of Melwood High School's Commencement Office. Here you will find a wealth of logistical information, helpful tips, and background material. Some of the most commonly sought after items include: specific information about Commencement activities, details about tickets, events schedule, maps and locations, news, resources for guests with disabilities, and links to Senior Week activities and the graduate and professional schools.</p>
+          <img alt="" src="images/graduate.jpg">
+          <p>In the event of extreme weather, ticketholders for Special Guest seating sections A2/SG, SG-1, and SG-2 ONLY, please proceed to Sanders Theatre in Memorial Hall to view the Morning Exercises.
+
+All other ticketholders are requested to view the ceremony over Comcast Cable (Channel 283) available at most of the undergraduate Houses and at the Graduate and Professional Schools. Limited indoor seating with large-screen viewing will be available in the Science Center. The Morning Exercises can also be viewed via live web-cast on this site.</p>
           <!-- ################################################################################################ --> 
         </div>
         <!-- / Middle Column --> 
-        <!-- Right Column -->
-        <div class="one_quarter sidebar"> 
-          <!-- ################################################################################################ -->
-          <div class="sdb_holder">
-            <h4>Virtual Tour</h4>
-            <div class="mediacontainer"><img src="images/demo/video.gif" alt="">
-              <p><a href="#">View More Tour Videos Here</a></p>
-            </div>
-          </div>
-          <div class="sdb_holder">
-            <h4>Quick Information</h4>
-            <ul class="nospace quickinfo">
-              <li class="clear"><a href="#"><img src="images/demo/80x80.gif" alt=""> Make An Application</a></li>
-              <li class="clear"><a href="#"><img src="images/demo/80x80.gif" alt=""> Order A Prospectus</a></li>
-            </ul>
-          </div>
-          <!-- ################################################################################################ --> 
-        </div>
-        <!-- / Right Column --> 
+       
+       
       </div>
       
       <!-- ################################################################################################ --> 
@@ -150,5 +120,17 @@
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 
 <script src="layout/scripts/jquery.mobilemenu.js"></script> 
 <script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
+<script type="text/javascript">
+function load_recent(){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	   if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        document.getElementById("list_recent").innerHTML = xmlhttp.responseText;
+	      }
+	   }
+	xmlhttp.open("GET", "index.php?page=news_list&recent=news_recently", true);
+    xmlhttp.send();
+}
+</script>
 </body>
 </html>

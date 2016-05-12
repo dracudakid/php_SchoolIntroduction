@@ -12,6 +12,7 @@ Licence URI: http://www.os-templates.com/template-terms
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="layout/styles/image.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
 
@@ -46,116 +47,35 @@ Licence URI: http://www.os-templates.com/template-terms
           </ul>
         </nav>
         <div class="sdb_holder">
-          <h6>Lorem ipsum dolor</h6>
-          <address>
-          Full Name<br>
-          Address Line 1<br>
-          Address Line 2<br>
-          Town/City<br>
-          Postcode/Zip<br>
-          <br>
-          Tel: xxxx xxxx xxxxxx<br>
-          Email: <a href="#">contact@domain.com</a>
-          </address>
-        </div>
-        <div class="sdb_holder">
-          <article>
-            <h6>Lorem ipsum dolor</h6>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-            <ul>
-              <li><a href="#">Lorem ipsum dolor sit</a></li>
-              <li>Etiam vel sapien et</li>
-              <li><a href="#">Etiam vel sapien et</a></li>
-            </ul>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed. Condimentumsantincidunt dui mattis magna intesque purus orci augue lor nibh.</p>
-            <p class="more"><a href="#">Continue Reading &raquo;</a></p>
-          </article>
-        </div>
+			<h6>Melwood High School</h6>
+			<address>
+				Address: 86 Brattle Street<br> Cambridge, MA 02138<br>
+				Tel: (617) 495-1551<br> <br>Fax: (617) 495-8821<br> Email: <a href="#">melwood@mhs.ame.com</a>
+			</address>
+		</div>
+
         <!-- ################################################################################################ --> 
       </div>
       <!-- ################################################################################################ --> 
       <!-- ################################################################################################ -->
       <div id="content" class="three_quarter"> 
         <!-- ################################################################################################ -->
-        <h1>&lt;h1&gt; to &lt;h6&gt; - Headline Colour and Size Are All The Same</h1>
-        <img class="imgr borderedbox" src="../images/demo/120x120.gif" alt="">
-        <p>Aliquatjusto quisque nam consequat doloreet vest orna partur scetur portortis nam. Metadipiscing eget facilis elit sagittis felisi eger id justo maurisus convallicitur.</p>
-        <p>Dapiensociis <a href="#">temper donec auctortortis cumsan</a> et curabitur condis lorem loborttis leo. Ipsumcommodo libero nunc at in velis tincidunt pellentum tincidunt vel lorem.</p>
-        <img class="imgl borderedbox" src="../images/demo/120x120.gif" alt="">
-        <p>This is a W3C compliant free website template from <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a>. For full terms of use of this template please read our <a href="http://www.os-templates.com/template-terms">website template licence</a>.</p>
-        <p>You can use and modify the template for both personal and commercial use. You must keep all copyright information and credit links in the template and associated files. For more website templates visit <a href="http://www.os-templates.com/">free website templates</a>.</p>
-        <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus.</p>
-       
-        <div id="comments">
-          <h2>Comments</h2>
-          <ul>
-            <li>
-              <article>
-                <header>
-                  <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
-                  <address>
-                  By <a href="#">A Name</a>
-                  </address>
-                  <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045 @08:15:00</time>
-                </header>
-                <div class="comcont">
-                  <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
-                </div>
-              </article>
-            </li>
-            <li>
-              <article>
-                <header>
-                  <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
-                  <address>
-                  By <a href="#">A Name</a>
-                  </address>
-                  <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045 @08:15:00</time>
-                </header>
-                <div class="comcont">
-                  <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
-                </div>
-              </article>
-            </li>
-            <li>
-              <article>
-                <header>
-                  <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
-                  <address>
-                  By <a href="#">A Name</a>
-                  </address>
-                  <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045 @08:15:00</time>
-                </header>
-                <div class="comcont">
-                  <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
-                </div>
-              </article>
-            </li>
-          </ul>
-          <h2>Write A Comment</h2>
-          <form action="#" method="post">
-            <div class="one_third first">
-              <label for="name">Name <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
-            </div>
-            <div class="one_third">
-              <label for="email">Mail <span>*</span></label>
-              <input type="text" name="email" id="email" value="" size="22">
-            </div>
-            <div class="one_third">
-              <label for="url">Website</label>
-              <input type="text" name="url" id="url" value="" size="22">
-            </div>
-            <div class="block clear">
-              <label for="comment">Your Comment</label>
-              <textarea name="comment" id="comment" cols="25" rows="10"></textarea>
-            </div>
-            <div>
-              <input name="submit" type="submit" value="Submit Form">
-              &nbsp;
-              <input name="reset" type="reset" value="Reset Form">
-            </div>
-          </form>
+        <h1>ABOUT MELWOOD HIGH SCHOOL</h1>
+        
+        <img id="myImg" style="width: 40%" class="imgr borderedbox" src="images/harvard-history.jpg" alt="">
+        
+        <!-- The Modal -->
+		<div id="myModal" class="modal">
+		  <span class="close">×</span>
+		  <img class="modal-content" id="img01">
+		  <div id="caption"></div>
+		</div>
+		
+        <p>Melwood High School University is devoted to excellence in teaching, learning, and research, and to developing leaders in many disciplines who make a difference globally. The University, which is based in Cambridge and Boston, Massachusetts, has an enrollment of over 20,000 degree candidates, including undergraduate, graduate, and professional students. Melwood High School has more than 360,000 alumni around the world.</p>
+		
+		<div style="margin-top: 20px;">
+		<p>Melwood High School faculty are engaged with teaching and research to push the boundaries of human knowledge. For students who are excited to investigate the biggest issues of the 21st century, Melwood High School offers an unparalleled student experience and a generous financial aid program, with over $160 million awarded to more than 60% of our undergraduate students. The University has twelve degree-granting Schools in addition to the Radcliffe Institute for Advanced Study, offering a truly global education.</p>
+		<p>Established in 1636, Melwood High School is the oldest institution of higher education in the United States. Learn more about the University's history.</p>     
         </div>
         <!-- ################################################################################################ --> 
       </div>
@@ -224,5 +144,27 @@ Licence URI: http://www.os-templates.com/template-terms
 <script src="layout/scripts/jquery.min.js"></script> 
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script type="text/javascript">
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    modalImg.alt = this.alt;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
 </body>
 </html>

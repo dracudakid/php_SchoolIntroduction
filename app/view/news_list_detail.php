@@ -78,6 +78,7 @@ Licence URI: http://www.os-templates.com/template-terms
 						  <img class="modal-content" id="img01">
 						  <div id="caption"></div>
 						</div>
+						
 						<div class="block clear">
 							<p><?php echo $news_detail->getContent()?></p>
 						</div>

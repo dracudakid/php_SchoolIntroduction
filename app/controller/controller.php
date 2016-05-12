@@ -147,9 +147,14 @@ class Controller
 										$news->insertNews($news);
 									}
 									else{
-										$image_fp = 'images/'.$idNews.'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-										move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
-										$news->setImage($image_fp);
+										$image = (new news())->getNewsById($idNews);
+										echo "update: ".$image->getImage();
+										if($image->getImage() == null || $image->getImage() == ""){
+											$image_fp = 'images/'.$idNews.'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+											move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
+											$news->setId($id);
+											$news->setImage($image_fp);
+										}else $news->setImage($image->getImage());
 										$news->updateNews($news);
 									}
 								}
@@ -159,22 +164,7 @@ class Controller
 									include_once 'view/admin/view_all_news_filter.php';
 									break;
 								}
-								$news_list = (new news())->getAllNews();
-								$all_news = array();
-								foreach ($news_list as $news){
-									if(strlen($news->getContent())>100){
-										$content =substr($news->getContent(), 0,100);
-										$news->setContent($content."...");
-									}
-									else $news->setContent($news->getContent());
-									if(strlen($news->getTitle())>30){
-										$title = substr($news->getTitle(), 0,30);
-										$news->setTitle($title."...");
-									}
-									else $news->setTitle($news->getTitle());
-									array_push($all_news, $news);
-								}
-								
+								$all_news = (new news())->getAllNews();
 								include_once 'view/admin/viewAllNews.php';
 								break;
 
@@ -190,6 +180,7 @@ class Controller
 								if(isset($_GET['idNews'])){
 									$idNews = $_GET['idNews'];
 									$news_edit = $news_edit->getNewsById($idNews);
+									echo "edit: ".$news_edit->getImage();
 								}
 								include_once 'view/admin/addNews.php';
 								break;

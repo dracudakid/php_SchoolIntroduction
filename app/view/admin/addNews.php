@@ -52,8 +52,7 @@ Licence URI: http://www.os-templates.com/template-terms
           <form action="index.php?page=admin&&tag=all_news" method="post" enctype="multipart/form-data">
             <div class="one_third first">
               <label for="title">Title<span>*</span></label>
-              <input type="text" name="titleNews" id="title" value="<?php if($news_edit != null) 
-              	echo $news_edit->getTitle()?>" size="22">
+              <input type="text" name="titleNews" id="title" value="<?php if($news_edit != null) echo $news_edit->getTitle()?>" size="22">
             </div>
             
             <div class="one_third first">

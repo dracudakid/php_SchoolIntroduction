@@ -80,8 +80,16 @@ Licence URI: http://www.os-templates.com/template-terms
 	            	foreach ($all_news as $n) { ?>
 	              <tr>
 	                <td><a href=""><?php echo $n->getTitle()?></a></td>
-	                <td><?php echo $n->getContent()?></td>
-	                <td><?php echo $n->getCreated()?></td>
+	                <td><?php if(strlen($n->getContent())>100){
+								$content =substr($n->getContent(), 0,100);
+								$n->setContent($content."...");
+							  }
+	                		  echo $n->getContent()?></td>
+	                <td><?php if(strlen($n->getTitle())>30){
+									$title = substr($n->getTitle(), 0,30);
+									$n->setTitle($title."...");
+								}
+	                		  echo $n->getCreated()?></td>
 	                <td><?php echo $n->getCreator_id()?></td>
 	                <td>
 	                	<div style="text-align: center;">

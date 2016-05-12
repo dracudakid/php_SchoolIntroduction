@@ -123,10 +123,14 @@ class Controller
 					}
 					// page=admin&&tag=...
 					if (isset($_GET["tag"])) {
+
 						switch ($_GET["tag"]) {
 							// page=admin&&tag=all_news
+
 							case 'all_news':
+
 								if(isset($_POST["SubmitNews"])){
+
 									$news = new news();
 									$news->setTitle($_POST['titleNews']);
 									$news->setContent($_POST['contentNews']);
@@ -134,7 +138,7 @@ class Controller
 									$idNews = $_POST['idNews'];
 									
 									// send upload file to images directory
-									var_dump($_FILES['image']);
+									// var_dump($_FILES['image']);
 									
 									if($idNews == null || $idNews == ""){
 										$idProcess = new idProcess();
@@ -230,7 +234,7 @@ class Controller
 									$staff->_setDegree($_POST["degree"]);
 									
 									// send upload file to images directory
-									var_dump($_FILES['image']);
+									// var_dump($_FILES['image']);
 									$image_fp = 'images/'.$_POST["id"].'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 									move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
 									$staff->_setImage($image_fp);
@@ -263,7 +267,7 @@ class Controller
 									$staff->_setEmail($_POST["email"]);
 									$staff->_setDegree($_POST["degree"]);
 									// send upload file to images directory
-									var_dump($_FILES['image']);
+									// var_dump($_FILES['image']);
 									$image_fp = 'images/'.$_POST["id"].'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 									move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
 									$staff->_setImage($image_fp);
@@ -313,7 +317,7 @@ class Controller
 									$department->_setFounding($_POST["founding"]);
 
 									// send upload file to images directory
-									var_dump($_FILES['image']);
+									// var_dump($_FILES['image']);
 									$image_fp = 'images/'.$_POST["id"].'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 									move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
 									$department->_setImage($image_fp);
@@ -333,7 +337,7 @@ class Controller
 									$department->_setDescription($_POST["description"]);
 									$department->_setFounding($_POST["founding"]);
 									// send upload file to images directory
-									var_dump($_FILES['image']);
+									// var_dump($_FILES['image']);
 									$image_fp = 'images/'.$_POST["id"].'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 									move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
 									$department->_setImage($image_fp);

@@ -49,7 +49,7 @@ Licence URI: http://www.os-templates.com/template-terms
        	
         <h2>Add News</h2>
         <div id="comments">
-          <form action="index.php?page=admin&&tag=all_news" method="post" enctype="multipart/form-data">
+          <form action="index.php?page=admin&tag=all_news" method="post" enctype="multipart/form-data">
             <div class="one_third first">
               <label for="title">Title<span>*</span></label>
               <input type="text" name="titleNews" id="title" value="<?php if($news_edit != null) 

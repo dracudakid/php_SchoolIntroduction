@@ -184,6 +184,76 @@ class Controller
 								}
 								
 								break;
+							
+							case 'all_clubs':
+								if (isset($_GET["search"])) {
+									$club_list = (new Club())->getClubListByName($_GET["search"]);
+									include_once 'view/admin/club_table.php';
+								}
+								else{
+									$club_list = (new Club())->getAllClubs();
+									include_once 'view/admin/all_clubs.php';
+								}
+								
+								break;
+
+							case 'all_departments':
+								if (isset($_GET["search"])) {
+									$department_list = (new Department())->getDepartmentList($_GET["search"]);
+									include_once 'view/admin/department_table.php';
+								}
+								else{
+									$department_list = (new Department())->getDepartmentList();
+									include_once 'view/admin/all_departments.php';
+								}
+								break;
+
+							case 'add_department':
+								if (isset($_POST["id"])) {
+									$department = new Department();
+									$department->_setId($_POST["id"]);
+									$department->_setName($_POST["name"]);
+									$department->_setDescription($_POST["description"]);
+									$department->_setFounding($_POST["founding"]);
+
+									// send upload file to images directory
+									var_dump($_FILES['image']);
+									$image_fp = 'images/'.$_POST["id"].'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+									move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
+									$department->_setImage($image_fp);
+
+									$department->insertDepartment();
+									header('location: index.php?page=admin&tag=all_departments');
+								} else{
+									$id = "dp".(new idProcess())->id("id", "departments", 3);
+									include_once 'view/admin/add_department.php';
+								}
+								break;
+							case 'edit_department':
+								if (isset($_POST["id"])) {
+									$department = new Department();
+									$department->_setId($_POST["id"]);
+									$department->_setName($_POST["name"]);
+									$department->_setDescription($_POST["description"]);
+									$department->_setFounding($_POST["founding"]);
+									// send upload file to images directory
+									var_dump($_FILES['image']);
+									$image_fp = 'images/'.$_POST["id"].'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+									move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
+									$department->_setImage($image_fp);
+									$department->editDepartment();
+									header('location: index.php?page=admin&tag=all_departments');
+								}
+								elseif(isset($_GET["depId"])){
+									$id = $_GET["depId"];
+									$department = (new Department())->getDepartmentById($id);
+									include_once 'view/admin/add_department.php';
+								}
+								break;
+
+							case 'delete_department':
+								# code...
+								break;
 							default:
 								# code...
 								break;

@@ -22,22 +22,22 @@ class Club
   public function getAllClubs()
   {
     $conn = MysqliConnection::getConnection();
-    $sql = "select * from clubs";
+    $sql = "select * from clubs;";
     $arr = array();
     $result = $conn->query($sql);
     while($items = mysqli_fetch_assoc($result)){
-            $c = new Club();
-            $c->_setId($items["id"]);
-            $c->_setName($items["name"]);
-            $c->_setDescription($items["description"]);
-            $c->_setImage($items["image"]);
-            $c->_setTime($items["time"]);
-            $c->_setLocation($items["location"]);
-            $c->_setAdvisor($items["advisor"]);
-            array_push($arr, $c);
-        }
-        $conn->close();
-        return $arr;
+        $c = new Club();
+        $c->_setId($items["id"]);
+        $c->_setName($items["name"]);
+        $c->_setDescription($items["description"]);
+        $c->_setImage($items["image"]);
+        $c->_setTime($items["time"]);
+        $c->_setLocation($items["location"]);
+        $c->_setAdvisor($items["advisor"]);
+        array_push($arr, $c);
+    }
+    $conn->close();
+    return $arr;
   }
 
   public function getClubById($clubId)
@@ -58,6 +58,27 @@ class Club
     }
     $conn->close();
     return $c;
+  }
+
+  public function getClubListByName($search)
+  {
+    $conn = MysqliConnection::getConnection();
+    $sql = "select * from clubs where name like '%$search%';";
+    $arr = array();
+    $result = $conn->query($sql);
+    while($items = mysqli_fetch_assoc($result)){
+        $c = new Club();
+        $c->_setId($items["id"]);
+        $c->_setName($items["name"]);
+        $c->_setDescription($items["description"]);
+        $c->_setImage($items["image"]);
+        $c->_setTime($items["time"]);
+        $c->_setLocation($items["location"]);
+        $c->_setAdvisor($items["advisor"]);
+        array_push($arr, $c);
+    }
+    $conn->close();
+    return $arr;
   }
 
     /**

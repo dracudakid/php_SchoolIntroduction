@@ -34,18 +34,18 @@
      
       </div>
       <div id="content" class="three_quarter"> 
-        <h1>ALL STAFFS</h1>
+        <h1>ALL CLUBS</h1>
         <div class="sdb_holder" style="margin-bottom: 20px;">  
           <div class="search-form">
             <fieldset>
               <legend>Search:</legend>
-              <input type="text" value="" placeholder="Search Here" onkeyup="searchStaff(this.value)">
+              <input type="text" value="" placeholder="Search Here" onkeyup="searchClub(this.value)">
               <button class="fa fa-search" type="button" title="Search"><em>Search</em></button>
             </fieldset>
           </div>
         </div>
-        <div id="staffs" class="scrollable">
-         <?php include_once __SITE_PATH.'/view/admin/staff_table.php'; ?>
+        <div id="clubs" class="scrollable">
+         <?php include_once __SITE_PATH.'/view/admin/club_table.php'; ?>
         </div>
       </div>
       <!-- / main body -->
@@ -63,16 +63,16 @@
 <script src="layout/scripts/sweetalert-master/dist/sweetalert.min.js"></script>
 <!-- <script src="layout/scripts/sweetalert-master/dist/sweetalert-dev.js"></script> -->
 <script type="text/javascript">
-  function searchStaff(searchValue) {
+  function searchClub(searchValue) {
     $.ajax({
-      url: "index.php"+window.location.search+"&search=" + searchValue, 
+      url: "index.php"+window.location.search+"&&search=" + searchValue, 
       success: function(result){
-        $("#staffs").html(result);
+        $("#clubs").html(result);
     }});
   };
 
-  function deleteStaff(staffId) {
-    console.log(staffId);
+  function deleteStaff(clubId) {
+    // console.log(staffId);
     swal(
       {   
         title: "Are you sure?",   
@@ -83,7 +83,7 @@
       }, 
       function(){   
         $.ajax({
-          url: "index.php?page=admin&tag=delete_staff&staffId="+staffId,
+          url: "index.php?page=admin&tag=delete_club&clubId="+clubId,
           success: function(){
             swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
               searchStaff("");

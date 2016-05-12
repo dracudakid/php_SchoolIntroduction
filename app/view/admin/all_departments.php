@@ -34,18 +34,18 @@
      
       </div>
       <div id="content" class="three_quarter"> 
-        <h1>ALL STAFFS</h1>
+        <h1>ALL DEPARTMENTS</h1>
         <div class="sdb_holder" style="margin-bottom: 20px;">  
           <div class="search-form">
             <fieldset>
               <legend>Search:</legend>
-              <input type="text" value="" placeholder="Search Here" onkeyup="searchStaff(this.value)">
+              <input type="text" value="" placeholder="Search Here" onkeyup="searchDepartment(this.value)">
               <button class="fa fa-search" type="button" title="Search"><em>Search</em></button>
             </fieldset>
           </div>
         </div>
-        <div id="staffs" class="scrollable">
-         <?php include_once __SITE_PATH.'/view/admin/staff_table.php'; ?>
+        <div id="departments" class="scrollable">
+         <?php include_once __SITE_PATH.'/view/admin/department_table.php'; ?>
         </div>
       </div>
       <!-- / main body -->
@@ -63,16 +63,16 @@
 <script src="layout/scripts/sweetalert-master/dist/sweetalert.min.js"></script>
 <!-- <script src="layout/scripts/sweetalert-master/dist/sweetalert-dev.js"></script> -->
 <script type="text/javascript">
-  function searchStaff(searchValue) {
+  function searchDepartment(searchValue) {
     $.ajax({
-      url: "index.php"+window.location.search+"&search=" + searchValue, 
+      url: "index.php"+window.location.search+"&&search=" + searchValue, 
       success: function(result){
-        $("#staffs").html(result);
+        $("#departments").html(result);
     }});
   };
 
-  function deleteStaff(staffId) {
-    console.log(staffId);
+  function deleteDepartment(depId) {
+    // console.log(staffId);
     swal(
       {   
         title: "Are you sure?",   
@@ -83,10 +83,10 @@
       }, 
       function(){   
         $.ajax({
-          url: "index.php?page=admin&tag=delete_staff&staffId="+staffId,
+          url: "index.php?page=admin&tag=delete_department&depId="+depId,
           success: function(){
             swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
-              searchStaff("");
+              searchDepartment("");
             }
           })
           

@@ -45,7 +45,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
           <?php 
             foreach ($dep_list as $dep) { ?>
               <ul>
-                <li><a href="index.php?page=staff_list&&dep=<?php echo $dep->getId() ?>"><?php echo $dep->getName() ?></a></li>
+                <li><a href="index.php?page=staff_list&dep=<?php echo $dep->getId() ?>"><?php echo $dep->getName() ?></a></li>
               </ul>
           <?php
             }
@@ -57,7 +57,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
         <div class="container">
         <h1><?php echo $department->getName() ?></h1>
         <?php if ($department->getImage()!="") $depImg = $department->getImage(); else $depImg="images/demo/120x120.gif";  ?>
-        <div class="clearfix"><img class="imgl borderedbox" style="overflow: all;" src="<?php echo $depImg ?>" alt="">
+        <div class="clearfix"><img id="department-img" class="imgl borderedbox" style="overflow: all;" src="<?php echo $depImg ?>" alt="">
         <p><?php echo $department->getDescription(); ?></p>
         <p>Founding: <?php echo $department->getFounding(); ?></p>
         <p>Dean: <?php echo $department->getDeanId(); ?></p>

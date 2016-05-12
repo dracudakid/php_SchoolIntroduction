@@ -16,10 +16,10 @@ class Department
 		# code...
 	}
 
-	public function getDepartmentList()
+	public function getDepartmentList($search="")
 	{
 		$conn = MysqliConnection::getConnection();
-		$sql = "select * from departments";
+		$sql = "select * from departments where name like '%$search%';";
         echo $sql;
         $arr = array();
         $result = $conn->query($sql);
@@ -48,10 +48,43 @@ class Department
             $dep->_setName($items["name"]);
             $dep->_setDescription($items["description"]);
             $dep->_setFounding($items["founding"]);
+            $dep->_setImage($items["image"]);
             $dep->_setDeanId($items["dean_id"]);
         }
         $conn->close();
         return $dep;
+    }
+
+    public function insertDepartment($dep=null)
+    {
+        if($dep==null) $dep = $this;
+        $conn = MysqliConnection::getConnection();
+        $stmt = $conn->prepare("INSERT INTO `departments` (`id`, `name`, `description`, `founding`, `image`, `dean_id`) VALUES (?, ?, ?, ?, ?, NULL);");
+        $stmt->bind_param("sssss",
+            $dep->getId(), 
+            $dep->getName(),
+            $dep->getDescription(),
+            $dep->getFounding(),
+            $dep->getImage());
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function editDepartment($dep=null)
+    {
+        if($dep==null) $dep = $this;
+        $conn = MysqliConnection::getConnection();
+        $stmt = $conn->prepare("UPDATE `departments` 
+            set name=?, description=?, founding=?, image=?
+            where id=?;");
+        $stmt->bind_param("sssss",
+            $dep->getName(),
+            $dep->getDescription(),
+            $dep->getFounding(),
+            $dep->getImage(),
+            $dep->getId());
+        $stmt->execute();
+        $stmt->close();
     }
     /**
      * Gets the value of id.
@@ -70,7 +103,7 @@ class Department
      *
      * @return self
      */
-    private function _setId($id)
+    public function _setId($id)
     {
         $this->id = $id;
 
@@ -94,7 +127,7 @@ class Department
      *
      * @return self
      */
-    private function _setName($name)
+    public function _setName($name)
     {
         $this->name = $name;
 
@@ -118,7 +151,7 @@ class Department
      *
      * @return self
      */
-    private function _setDescription($description)
+    public function _setDescription($description)
     {
         $this->description = $description;
 
@@ -142,7 +175,7 @@ class Department
      *
      * @return self
      */
-    private function _setFounding($founding)
+    public function _setFounding($founding)
     {
         $this->founding = $founding;
 
@@ -166,7 +199,7 @@ class Department
      *
      * @return self
      */
-    private function _setImage($image)
+    public function _setImage($image)
     {
         $this->image = $image;
 
@@ -190,7 +223,7 @@ class Department
      *
      * @return self
      */
-    private function _setDeanId($dean_id)
+    public function _setDeanId($dean_id)
     {
         $this->dean_id = $dean_id;
 

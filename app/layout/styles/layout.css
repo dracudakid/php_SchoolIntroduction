@@ -120,7 +120,7 @@ File: Layout CSS
 /* Search form */
 .search-form{display:block; position:relative; width:100%;}
 .search-form input, .search-form button{display:block; height:30px; border:1px solid #eee;}
-.search-form input{width:100%; padding:5px 40px 5px 5px;}
+.search-form input{float:right; padding:5px 40px 5px 5px;}
 .search-form button{position:absolute; top:0; right:0; width:35px; font-size:14px; cursor:pointer; color: #F9F9F9; background-color: #55ABDA; border-radius: 0 8px 8px 0;}
 .search-form button em{display:none;}
 

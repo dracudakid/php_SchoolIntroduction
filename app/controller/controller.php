@@ -77,6 +77,41 @@ class Controller
 						include_once 'view/club_list.php';
 					}
 					break;
+					
+				//page=news_list	
+				case 'news_list':
+					$all_news = (new news())->getAllNews();
+					$best_news = (new news())->getNewsViewTheMost();
+					if (isset($_GET['recent']) && $_GET['recent'] == 'news_recently'){
+						$news_recently = (new news())->getNewsRecently();
+ 						include_once 'view/left_news.php';
+						break;
+					}
+					
+					if (isset($_GET['search'])){
+						$searchValue = $_GET['search'];
+						$all_news = (new news())->getNewsByTitleAndContent($searchValue);
+						include_once 'view/news_list_filter.php';
+						break;
+					}
+					include_once 'view/news_list.php';
+					break;
+				
+				case 'news_detail':
+					if(isset($_GET['idNews'])){
+						$idNews = $_GET['idNews'];
+						$news_detail = (new news())->updateViewQuantity($idNews);
+						$news_detail = (new news())->getNewsById($idNews);
+						$best_news = (new news())->getNewsViewTheMost();
+						$news_recently = (new news())->getNewsRecently();
+						include_once 'view/news_list_detail.php';
+					}
+					break;
+				
+				case 'about':
+					include_once 'view/about.php';
+					break;
+
 				// page=admin
 				case 'admin':
 
@@ -88,24 +123,81 @@ class Controller
 								if(isset($_POST["SubmitNews"])){
 									$news = new news();
 									$news->setTitle($_POST['titleNews']);
-									echo "title: ".$_POST['titleNews'];
 									$news->setContent($_POST['contentNews']);
-
-									$news->setImage($_POST['imageNews']);
-									$news->insertNews($news);
+									$news->setId($_POST['idNews']);
+									$idNews = $_POST['idNews'];
+									
+									// send upload file to images directory
+									var_dump($_FILES['image']);
+									
+									if($idNews == null || $idNews == ""){
+										$idProcess = new idProcess();
+										$id = "n0".$idProcess->id("id", "news");
+										$image_fp = 'images/'.$id.'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+										move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
+										$news->setId($id);
+										$news->setImage($image_fp);
+										echo "insert";
+										
+										$news->insertNews($news);
+									}
+									else{
+										$image_fp = 'images/'.$idNews.'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+										move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
+										$news->setImage($image_fp);
+										echo "update";
+										$news->updateNews($news);
+									}
 								}
-								$all_news = (new news())->getAllNews();
+								if (isset($_GET['search'])){
+									$searchValue = $_GET['search'];
+									$all_news = (new news())->getNewsByTitleAndContent($searchValue);
+									include_once 'view/admin/view_all_news_filter.php';
+									break;
+								}
+								$news_list = (new news())->getAllNews();
+								$all_news = array();
+								foreach ($news_list as $news){
+									if(strlen($news->getContent())>100){
+										$content =substr($news->getContent(), 0,100);
+										$news->setContent($content."...");
+									}
+									else $news->setContent($news->getContent());
+									if(strlen($news->getTitle())>30){
+										$title = substr($news->getTitle(), 0,30);
+										$news->setTitle($title."...");
+									}
+									else $news->setTitle($news->getTitle());
+									array_push($all_news, $news);
+								}
+								
 								include_once 'view/admin/viewAllNews.php';
+								break;
+
+							//page=admin&tag=add_news
+							case 'add_news':
+								$news_edit = null;
+								include_once 'view/admin/addNews.php';
+								
+							// page=admin&tag=edit
+							case 'edit_news':
+								$news_edit = new news();
+								//edit news by id
 								if(isset($_GET['idNews'])){
 									$idNews = $_GET['idNews'];
-									
+									$news_edit = $news_edit->getNewsById($idNews);
 								}
-								break;
-
-							// page=admin&&tag=add_news
-							case 'add_news':
 								include_once 'view/admin/addNews.php';
 								break;
+							case 'delete_news':
+								$news_delete = new news();
+								//edit news by id
+								if(isset($_GET['idNews'])){
+									$idNews = $_GET['idNews'];
+									$news_delete = $news_delete->deleteNews($idNews);
+								}
+								include_once 'view/admin/viewAllNews.php';
+								break;	
 
 							// page=admin&&tag=all_staffs
 							case 'all_staffs':
@@ -254,17 +346,20 @@ class Controller
 							case 'delete_department':
 								# code...
 								break;
+
 							default:
 								# code...
 								break;
 						}
+
 					} 
 					// page=admin
 					else {
 						$news_list = (new news())->getAllNews();
 						include_once 'view/admin/viewAllNews.php';
-						break;
+						
 					}
+					break;
 
 				// page=new
 				case 'news':

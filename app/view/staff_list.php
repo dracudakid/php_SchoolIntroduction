@@ -30,7 +30,7 @@ include_once __SITE_PATH.'/model/department.php';
       <!-- main body --> 
       <!-- ################################################################################################ -->
       <div class="sidebar one_quarter first"> 
-       <h6>Search for staff</h6>
+       <h4>Search for staff</h4>
         <div class="sdb_holder">  
           <form class="search-form" method="post" >
             <fieldset>
@@ -40,7 +40,7 @@ include_once __SITE_PATH.'/model/department.php';
             </fieldset>
           </form>
         </div>
-        <h6>DEPARTMENTS</h6>
+        <h4>DEPARTMENTS</h4>
         <nav class="sdb_holder">
           <?php 
             foreach ($dep_list as $dep) { ?>
@@ -54,9 +54,9 @@ include_once __SITE_PATH.'/model/department.php';
       </div>
 
       <div id="content" class="three_quarter"> 
-        <h1>Staff</h1>
+        <h1>Melwood High School's Staffs</h1>
         <div id="staffs">
-          <ul>
+          <ul id="staffs-list">
           <?php foreach ($staff_list as $s) { ?>
            <li class="staff">
               <div class="one_quarter first"> 
@@ -88,23 +88,6 @@ include_once __SITE_PATH.'/model/department.php';
            
           </ul>
         </div>
-        <nav class="pagination">
-        <ul>
-          <li><a href="#">« Previous</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><strong>…</strong></li>
-          <li><a href="#">6</a></li>
-          <li class="current"><strong>7</strong></li>
-          <li><a href="#">8</a></li>
-          <li><a href="#">9</a></li>
-          <li><strong>…</strong></li>
-          <li><a href="#">14</a></li>
-          <li><a href="#">15</a></li>
-          <li><a href="#">Next »</a></li>
-        </ul>
-      </nav>
-        <!-- ################################################################################################ --> 
       </div>
       <!-- ################################################################################################ --> 
       <!-- / main body -->
@@ -118,6 +101,7 @@ include_once __SITE_PATH.'/model/department.php';
 <script src="layout/scripts/jquery.min.js"></script> 
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="layout/scripts/jPaginate.js"></script>
 <script type="text/javascript">
   function searchStaff(searchValue) {
     var xmlhttp = new XMLHttpRequest();
@@ -129,6 +113,7 @@ include_once __SITE_PATH.'/model/department.php';
     xmlhttp.open("GET", "index.php?page=staff_list&&search=" + searchValue, true);
     xmlhttp.send();
   }
+  $("#staffs-list").jPaginate();
 </script>
 </body>
 </html>

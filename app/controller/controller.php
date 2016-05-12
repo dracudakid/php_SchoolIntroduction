@@ -3,6 +3,7 @@ include_once 'model/department.php';
 include_once 'model/staff.php';
 include_once 'model/news.php';
 include_once 'model/club.php';
+include_once 'model/account.php';
 include_once 'helpers/idProcess.php';
 /**
 * 
@@ -17,6 +18,7 @@ class Controller
 
 	public function route()
 	{
+		session_start();
 		# have page paramter
 		if(isset($_GET["page"])){
 			switch ($_GET["page"]) {
@@ -114,7 +116,11 @@ class Controller
 
 				// page=admin
 				case 'admin':
-
+					// echo $_SESSION["account"];
+					// break;
+					if(!isset($_SESSION["account"])){
+						header("location: index.php");
+					}
 					// page=admin&&tag=...
 					if (isset($_GET["tag"])) {
 						switch ($_GET["tag"]) {
@@ -137,7 +143,6 @@ class Controller
 										move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
 										$news->setId($id);
 										$news->setImage($image_fp);
-										echo "insert";
 										
 										$news->insertNews($news);
 									}
@@ -145,7 +150,6 @@ class Controller
 										$image_fp = 'images/'.$idNews.'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 										move_uploaded_file($_FILES['image']['tmp_name'], $image_fp);
 										$news->setImage($image_fp);
-										echo "update";
 										$news->updateNews($news);
 									}
 								}
@@ -356,16 +360,43 @@ class Controller
 					// page=admin
 					else {
 						$news_list = (new news())->getAllNews();
+						$all_news = array();
+						foreach ($news_list as $news){
+							if(strlen($news->getContent())>100){
+								$content =substr($news->getContent(), 0,100);
+								$news->setContent($content."...");
+							}
+							else $news->setContent($news->getContent());
+							if(strlen($news->getTitle())>30){
+								$title = substr($news->getTitle(), 0,30);
+								$news->setTitle($title."...");
+							}
+							else $news->setTitle($news->getTitle());
+							array_push($all_news, $news);
+						}
 						include_once 'view/admin/viewAllNews.php';
 						
 					}
 					break;
 
-				// page=new
-				case 'news':
+				// page="sign-in"
+				case 'sign-in':
+					if(isset($_POST["name"]) && isset($_POST["password"])){
+						$account = (new Account())->getAccountByNamePassword($_POST["name"], $_POST["password"]);
+						if($account != null){
+							$_SESSION["account"] = $account->getName();
+							header("location: index.php?page=admin");
+						}
+						else{
+							header("location: index.php");
+						}
+					}
 					break;
 
-
+				case 'log-out':
+					session_destroy();
+					header("location:index.php");
+					break;
 				default:
 					$staff_list = (new Staff())->getAllStaff();
 					include_once 'view/staff_list.php';

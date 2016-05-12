@@ -25,7 +25,8 @@ Licence URI: http://www.os-templates.com/template-terms
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6&appId=1675074109399975";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
 
 	<div class="wrapper row0">
   <?php include __SITE_PATH.'/layout/topbar.php'?>
@@ -74,7 +75,7 @@ Licence URI: http://www.os-templates.com/template-terms
 						
 						<!-- The Modal -->
 						<div id="myModal" class="modal">
-						  <span class="close">×</span>
+						  <span class="close">Ã—</span>
 						  <img class="modal-content" id="img01">
 						  <div id="caption"></div>
 						</div>
@@ -95,7 +96,7 @@ Licence URI: http://www.os-templates.com/template-terms
 				<div class="one_quarter sidebar">
 					<!-- ################################################################################################ -->
 					<div class="sdb_holder">
-						<h6>Introduce school</h6>
+						<h4>Introduce school</h4>
 						<div class="mediacontainer">
 							<video width="100%" controls autoplay muted>
 								<source src="images/demo/Harvard University.mp4"
@@ -105,7 +106,7 @@ Licence URI: http://www.os-templates.com/template-terms
 						</div>
 					</div>
 					<div class="sdb_holder">
-						<h6>Quick Information</h6>
+						<h4>Quick Information</h4>
 						<ul class="nospace quickinfo">
            					 <?php foreach ($best_news as $a_news){?>
 				              <li class="clear"><a

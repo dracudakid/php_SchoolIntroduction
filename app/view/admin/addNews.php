@@ -48,20 +48,6 @@ Licence URI: http://www.os-templates.com/template-terms
           Email: <a href="#">contact@domain.com</a>
           </address>
         </div>
-        <div class="sdb_holder">
-          <article>
-            <h6>Lorem ipsum dolor</h6>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-            <ul>
-              <li><a href="#">Lorem ipsum dolor sit</a></li>
-              <li>Etiam vel sapien et</li>
-              <li><a href="#">Etiam vel sapien et</a></li>
-            </ul>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed. Condimentumsantincidunt dui mattis magna intesque purus orci augue lor nibh.</p>
-            <p class="more"><a href="#">Continue Reading &raquo;</a></p>
-          </article>
-        </div>
-        <!-- ################################################################################################ --> 
       </div>
       <!-- ################################################################################################ --> 
       <!-- Add News -->
@@ -78,11 +64,11 @@ Licence URI: http://www.os-templates.com/template-terms
             <div class="one_third first">
               <label for="title">Title<span>*</span></label>
               <input type="text" name="titleNews" id="title" value="<?php if($news_edit != null) 
-              	echo $news_edit->getTitle()?>" size="22">
+              	echo $news_edit->getTitle()?>" size="22" required>
             </div>
             
             <div class="one_third first">
-              <label for="imgInp">Image<span>*</span></label>
+              <label for="imgInp">Image</label>
               <input type="file" name="image" id="imgInp" accept="image/*">
               <img src="<?php if($news_edit != null) echo $news_edit->getImage()?>" alt="" id="image-preview" class="borderedbox">
             </div>
@@ -90,7 +76,7 @@ Licence URI: http://www.os-templates.com/template-terms
             <div class="block clear">
               <label for="content">Content<span>*</span></label>
               <textarea name="contentNews" id="content" cols="25" rows="10" class="ckeditor" 
-              class="input-long" ><?php if($news_edit != null) echo $news_edit->getContent()?></textarea>
+              class="input-long" required ><?php if($news_edit != null) echo $news_edit->getContent()?></textarea>
             </div>
             
             <div>

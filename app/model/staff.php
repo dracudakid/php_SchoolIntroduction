@@ -46,7 +46,6 @@ class Staff
 	{
 		$conn = MysqliConnection::getConnection();
 		$sql = "select * from staffs where department_id = '$depId'";
-        echo $sql;
 		$arr = array();
 		$result = $conn->query($sql);
 		while($items = mysqli_fetch_assoc($result)){
@@ -69,7 +68,6 @@ class Staff
     {
         $conn = MysqliConnection::getConnection();
         $sql = "select * from staffs where name like '%$name%'";
-        echo $sql;
         $arr = array();
         $result = $conn->query($sql);
         while($items = mysqli_fetch_assoc($result)){
@@ -92,7 +90,6 @@ class Staff
     {
         $conn = MysqliConnection::getConnection();
         $sql = "select * from staffs where department_id='$depId' and name like '%$name%'";
-        echo $sql;
         $arr = array();
         $result = $conn->query($sql);
         while($items = mysqli_fetch_assoc($result)){

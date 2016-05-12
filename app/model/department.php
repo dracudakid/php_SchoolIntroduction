@@ -20,7 +20,6 @@ class Department
 	{
 		$conn = MysqliConnection::getConnection();
 		$sql = "select * from departments where name like '%$search%';";
-        echo $sql;
         $arr = array();
         $result = $conn->query($sql);
         while($items = mysqli_fetch_assoc($result)){
@@ -40,7 +39,6 @@ class Department
     {
         $conn = MysqliConnection::getConnection();
         $sql = "select * from departments where id = '$depId'";
-        echo $sql;
         $result = $conn->query($sql);
         $dep = new Department();
         if($items = mysqli_fetch_assoc($result)){

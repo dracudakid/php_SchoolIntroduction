@@ -30,7 +30,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
       <!-- main body --> 
       <!-- ################################################################################################ -->
       <div class="sidebar one_quarter first"> 
-       <h6>Search for club</h6>
+       <h4>Search for club</h4>
         <div class="sdb_holder">  
           <form class="search-form" method="post" action="#">
             <fieldset>
@@ -40,7 +40,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/CongNgheWeb/app/model/department.php';
             </fieldset>
           </form>
         </div>
-        <h6>CLUBS</h6>
+        <h4>CLUBS</h4>
         <nav class="sdb_holder">
           <?php 
             foreach ($club_list as $c) { ?>

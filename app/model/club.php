@@ -44,7 +44,7 @@ class Club
   {
     $conn = MysqliConnection::getConnection();
     $sql = "select * from clubs where id = '$clubId'";
-    echo $sql;
+
     $result = $conn->query($sql);
     $c = new Club();
     if($items = mysqli_fetch_assoc($result)){

@@ -60,7 +60,7 @@ File: Layout CSS
 
 #slider #slide-tabs{display:block; overflow:hidden; font-size:12px;}
 #slider #slide-tabs li{display:inline-block; float:left;}
-#slider #slide-tabs li a{display:block; width:192px; min-height:60px; padding:10px; box-sizing:border-box; border:solid; border-width:0 0 1px 1px; font-weight:bold; text-align:center; text-transform:uppercase;}
+#slider #slide-tabs li a{display:block; width:192px; min-height:65px; padding:10px; box-sizing:border-box; border:solid; border-width:0 0 1px 1px; font-weight:bold; text-align:center; text-transform:uppercase;}
 #slider #slide-tabs li:last-child a{border-width:0 1px 1px 1px;}
 
 
@@ -110,7 +110,7 @@ File: Layout CSS
 #staffs .staff-name{font-weight:bold;}
 #staffs .staffcon{display:block;}
 #staffs ul { list-style: none; margin-bottom: 20px; }
-#staffs .staff { }
+
 #staffs .staffcon ul {}
 #staffs .staffcon ul li { margin-top: 5px;  list-style: circle; }
 
@@ -128,12 +128,23 @@ File: Layout CSS
 #add-form{display: block; position: relative; width: 100%; max-width: 500px; margin: 0 auto;}
 #add-form input, #add-form button {display: block; padding: 10px; }
 #add-form input, #add-form select, #add-form textarea {width:100%; padding:10px; border:1px solid;}
-#add-form input[type="submit"], #add-form input[type="reset"] { background-color: #FBFBFB; width: auto; min-width: 150px; display: inline-block; cursor: pointer; }
+#add-form input[type="submit"], #add-form input[type="reset"] { width: auto; min-width: 150px; display: inline-block; cursor: pointer; }
+
+
+/* Sign in form*/
+#signin-form{display: block; position: relative; width: 100%; max-width: 400px; margin: 0 auto;}
+#signin-form input, #signin-form button {display: block; padding: 10px; border: 1px solid #dfe3ee ; }
+#signin-form input {width:100%; padding:10px; }
+#signin-form input[type="submit"], #signin-form input[type="button"] {width: auto; min-width: 150px; display: inline-block; cursor: pointer; }
+input[type="submit"] { background-color: #3b5998; color: #f7f7f7; }
+
+
+
 
 /* Sidebar */
 .container .sidebar{}
 
-.sidebar .sdb_holder{margin-bottom:50px;}
+.sidebar .sdb_holder{margin-bottom:20px;}
 .sidebar .sdb_holder:last-child{margin-bottom:0;}
 
 
@@ -210,7 +221,7 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 .sidebar nav{display:block; width:100%;}
 .sidebar nav li{margin:0 0 3px 0; padding:0;}
 .sidebar nav a{display:block; position:relative; margin:0; padding:5px 10px 5px 15px; text-decoration:none; border:solid; border-width:0 0 1px 0;}
-.sidebar nav a::after{top:9px; left:5px; content:"\f101";}
+.sidebar nav a::after{top:9px; left:5px; content:"";}
 .sidebar nav ul ul a{padding-left:35px;}
 .sidebar nav ul ul a::after{left:25px;}
 .sidebar nav ul ul ul a{padding-left:55px;}
@@ -221,6 +232,8 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 .pagination li{display:inline-block; margin:0 2px 0 0;}
 .pagination li:last-child{margin-right:0;}
 .pagination a, .pagination strong{display:block; padding:8px 11px; border:1px solid; font-weight:normal; background-clip:padding-box;}
+.pagination a.inactive { color: #979797; }
+.pagination a.active { background-color: #64B2DD; color: #f7f7f7;  }
 
 
 /* Tables
@@ -232,7 +245,7 @@ th, td{padding:5px 8px;}
 td{border-width:0 1px;}
 
 /*error style in department table*/
-#departments tr td{color: #979797;}
+#news tr td, #departments tr td{color: #979797;}
 #department-img{ max-width: 200px; }
 
 
@@ -298,7 +311,11 @@ td{border-width:0 1px;}
 
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
-body{color:#F9F9F9; background-color:#06213F;}
+body{color:#F9F9F9; 
+background: #5f2c82; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #5f2c82 , #49a09d); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #5f2c82 , #49a09d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
 
 a{color:#55ABDA;}
 
@@ -310,8 +327,8 @@ label span{color:#FF0000; background-color:inherit;}
 
 
 /* Rows */
-.row0, .row0 a{color:#F9F9F9; background-color:#06213F;}
-.row1{color:#979797; background-color:#06213F;}
+.row0, .row0 a{color:#F9F9F9; }
+.row1{color:#dfe3ee; }
 .row1 a{color:#F9F9F9; background-color:inherit;}
 .row2, .row2 a{color:#06213F; background-color:inherit;}
 .row3{color:#979797; background-color:inherit;}
@@ -336,10 +353,11 @@ label span{color:#FF0000; background-color:inherit;}
 
 
 /* Content Area */
-.container h1, .container h2, .container h3, .container h4, .container h5, .container h6, .container .heading{border-color:#D7D7D7;}
+.container h1, .container h2, .container h3, .container h4, .container h5, .container h6, .container .heading{border-color:#8b9dc3;}
 
-#twitter{color:#FFFFFF; background-color:#06213F;}
+#twitter{color:#dfe3ee; background-color: #3b5998;}
 #twitter div:first-child{border-color:#FFFFFF;}
+#twitter a{color:#dfe3ee;}
 
 .listing li{border-color:#D7D7D7;}
 
@@ -465,4 +483,86 @@ table a, #comments a{background-color:inherit;}
 @media screen and (max-width:650px) {
 	.scrollable{display:block; width:100%; margin:0 0 30px 0; padding:0 0 15px 0; overflow:auto; overflow-x:scroll;}
 	.scrollable table{margin:0; padding:0; white-space:nowrap;}
+}
+
+
+
+#myImg:hover, .imageHome:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes zoom {
+    from {transform: scale(0.1)} 
+    to {transform: scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
 }

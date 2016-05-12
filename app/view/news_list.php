@@ -2,13 +2,6 @@
 include_once __SITE_PATH.'/model/news.php'; 
 ?>
 <!DOCTYPE html>
-<!--
-Template Name: Academic Education V2
-Author: <a href="http://www.os-templates.com/">OS Templates</a>
-Author URI: http://www.os-templates.com/
-Licence: Free to use under our free template licence terms
-Licence URI: http://www.os-templates.com/template-terms
--->
 <html>
 <head>
 <title>News</title>
@@ -68,7 +61,7 @@ Licence URI: http://www.os-templates.com/template-terms
           <!-- ################################################################################################ -->
           <h2>LATEST NEWS &amp; EVENTS</h2>
       	<div id="news">
-          <ul class="nospace listing">
+          <ul id="news-list" class="nospace listing">
            <?php 
           		foreach ($all_news as $n){
           ?>
@@ -95,8 +88,7 @@ Licence URI: http://www.os-templates.com/template-terms
           <?php }?>
           </ul>
         </div>
-          <p class="right"><a href="#">Click here to view all of the latest news and events &raquo;</a></p>
-          <!-- ################################################################################################ --> 
+         <div class="right"></div>
         </div>
         <!-- / Middle Column --> 
         
@@ -106,7 +98,7 @@ Licence URI: http://www.os-templates.com/template-terms
           <!-- ################################################################################################ -->
           
           <div class="sdb_holder">
-            <h6>Introduce school</h6>
+            <h4>Introduce school</h4>
             <div class="mediacontainer">
 				<video width="100%" controls autoplay muted>
 					<source src="images/demo/Harvard University.mp4" type="video/mp4">
@@ -115,7 +107,7 @@ Licence URI: http://www.os-templates.com/template-terms
             </div>
           </div>
           <div class="sdb_holder">
-            <h6>Quick Information</h6>
+            <h4>Quick Information</h4>
             <ul class="nospace quickinfo">
             <?php foreach ($best_news as $a_news){?>
               <li class="clear">
@@ -139,17 +131,13 @@ Licence URI: http://www.os-templates.com/template-terms
           <p>Inteligula congue id elis donec sce sagittis intes id laoreet aenean. Massawisi condisse leo sem ac tincidunt nibh quis dui fauctor et donecnibh elis velit <a href="#">@name</a> - 10:15 AM yesterday</p>
         </div>
       </div>
-      <!-- ################################################################################################ --> 
-      <!-- ################################################################################################ -->
-      <!-- ################################################################################################ --> 
+    
       <!-- / main body -->
       <div class="clear"></div>
     </main>
   </div>
 </div>
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ --> 
-<!-- ################################################################################################ -->
+
 <div class="wrapper row4">
   <div class="rounded">
     <footer id="footer" class="clear"> 
@@ -207,6 +195,7 @@ Licence URI: http://www.os-templates.com/template-terms
 <script src="layout/scripts/jquery.fitvids.min.js"></script> 
 <script src="layout/scripts/jquery.mobilemenu.js"></script> 
 <script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
+<script src="layout/scripts/jPaginate.js"></script>
 <script type="text/javascript">
 
 	//search
@@ -232,6 +221,7 @@ Licence URI: http://www.os-templates.com/template-terms
 	    xmlhttp.send();
 	}
 	
+  $("#news-list").jPaginate({items: 3});
 	
 </script>
 </body>

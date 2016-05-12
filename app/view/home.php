@@ -21,7 +21,7 @@ include_once __SITE_PATH.'/model/news.php';
   <?php include __SITE_PATH.'/layout/header.php' ?>
 </div>
 
-<div class="wrapper row2">
+<div class="wrapper row2" id="main-nav-wrapper">
   <?php require __SITE_PATH.'/layout/main-nav.php' ?>
 </div>
 <div class="wrapper">
@@ -131,6 +131,22 @@ function load_recent(){
 	xmlhttp.open("GET", "index.php?page=news_list&recent=news_recently", true);
     xmlhttp.send();
 }
+
+$(document).ready(function() {
+  
+  $(window).scroll(function () {
+      //if you hard code, then use console
+      //.log to determine when you want the 
+      //nav bar to stick.  
+      console.log($(window).scrollTop())
+    if ($(window).scrollTop() > 110) {
+      $('#main-nav-wrapper').addClass('navbar-fixed');
+    }
+    if ($(window).scrollTop() < 111) {
+      $('#main-nav-wrapper').removeClass('navbar-fixed');
+    }
+  });
+});
 </script>
 </body>
 </html>

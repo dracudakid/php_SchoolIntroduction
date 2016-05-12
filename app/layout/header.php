@@ -1,5 +1,4 @@
 <header id="header" class="clear"> 
-    <!-- ################################################################################################ -->
     <div id="logo" class="fl_left">
       <h1><a href="index.php">Melwood High School</a></h1>
       <p>The best high school in the dream...</p>
@@ -13,5 +12,5 @@
         </fieldset>
       </form>
     </div>
-    <!-- ################################################################################################ --> 
+
   </header>

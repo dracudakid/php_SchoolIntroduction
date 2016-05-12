@@ -7,7 +7,6 @@ class idProcess{
 		$db = new MysqliConnection();
 		$query = "SELECT MAX(cast(SUBSTRING($idNameCol,$startIndex)as int)) as iD ".
 				"FROM  ".$tableName;
-		echo $query;
 		$result = $db->getConnection()->query($query);
 		$id = mysqli_fetch_row($result);
 		return $id[0]+1;
@@ -16,7 +15,6 @@ class idProcess{
 	public function test(){
 		$idPro = new idProcess();
 		$numOfId = $idPro->id("id", "news");
-		echo $numOfId;
 		
 	}
 	

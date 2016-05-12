@@ -2,7 +2,7 @@
     <nav id="mainav" class="clear"> 
       <!-- ################################################################################################ -->
       <ul class="clear">
-        <li class="active"><a href="index.php?page=news_list">Home</a></li>
+        <li class="active"><a href="index.php">Home</a></li>
         <li><a class="drop" href="index.php?page=about">About</a>
         	<ul>
         		<li><a class="drop" href="#">Mission</a></li>
@@ -18,3 +18,4 @@
       </ul>
     </nav>
   </div>
+
